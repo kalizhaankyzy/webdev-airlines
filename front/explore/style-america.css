@@ -1,0 +1,47 @@
+.header {
+    background: url(src/usa4.jpg);
+    background-size: cover;
+}
+.grid-container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr repeat(6);
+    grid-template-rows: 0.8r 1fr 1fr;
+    grid-gap: 5px;
+    margin: auto;
+}
+.grid-container img{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+    width: 405px;
+    height: 265px;
+    object-fit: cover;
+}
+.grid-item-1,
+.grid-item-2,
+.grid-item-3{
+    grid-column: span 2;
+}
+.grid-item-4{
+    grid-column: span 6;
+}
+.grid-item-5,
+.grid-item-6{
+    grid-column: span 3;
+}
+.grid-item-4 img{
+    width: 1230px;
+    height: 615px;
+}
+.grid-item-5 img,
+.grid-item-6 img{
+    width: 611px;
+    height: 415px;
+}
+.grid-item-1:hover .btn,
+.grid-item-2:hover .btn,
+.grid-item-3:hover .btn,
+.grid-item-4:hover .btn,
+.grid-item-5:hover .btn,
+.grid-item-6:hover .btn{
+    opacity: 1;
+}

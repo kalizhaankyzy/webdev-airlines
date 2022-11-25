@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:display=swap');
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.order-container{
+    justify-content: center;
+    align-content: center;
+    padding: 20px 40px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border: none;
+    margin: auto;
+    background-color: rgb(240, 240, 240);
+    z-index: 1;
+}
+form{
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.order-form{
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    width: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 20px;
+    grid-gap: 20px;
+}
+.grid-order-6{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.grid-order-5,
+.grid-order-6{
+    grid-column-end: 5;
+    grid-column-start: 4;
+}
+.grid-order input{
+    border: 1px solid #d7d7d7;
+    min-height: 46px;
+    border-radius: 6px;
+    width: 170px;
+}
+.grid-order-6 input{
+    width: 192px;
+    margin-right: 5.7%;
+    background-color: #ffa903;
+    border-radius: 5px;
+    border: none;
+}
+.order-select label{
+    color: #5c0931;
+    font-size: 18px;
+    font-family: 'Barlow', sans-serif;
+}
+.order-form input{
+    font-size: 16px;
+    font-family: 'Barlow', sans-serif;
+    color: grey;
+    border: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
+}
+.order-select input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #5c0931;
+    transition: 0.2s all linear;
+    outline: none;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    position: relative;
+    top: 4px;
+}
+.order-select input:checked{
+    border: 8px solid #5c0931;
+}
+::-webkit-calendar-picker-indicator{
+    background-image: url("../src/calendar2.png");
+    width:  40px;
+    height: 50px;
+    cursor: pointer;
+}
+.grid-order-6 input{
+    padding: 0px;
+    color: black;
+    cursor: pointer;
+}
+.grid-order p{
+    position: absolute;
+    margin: auto;
+    margin-left: 10px;
+    font-size: small;
+    color: #5c0931;
+    font-family: 'Barlow', sans-serif;
+}
+.grid-order-6 div{
+    position: absolute;
+}
+.grid-order-6 img{
+    width: 30px;
+}

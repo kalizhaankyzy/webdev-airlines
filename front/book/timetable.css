@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:display=swap');
+
+html, body{
+    font-family: 'Barlow', sans-serif;
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+.header{
+    background: url('./src/intro-image-01.jpeg') center/cover;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    opacity: 3.75;
+}
+.wave{
+    position: absolute;
+    top: 70%;
+    z-index: 4;
+    pointer-events: none;
+    width: 100%;
+    left: 50%;
+    margin: 0 0 0 -1000px; 
+}
+.book-cont{
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    color: #5c0931;
+    border-radius: 24px;
+}
+.book-cont ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1% 0;
+    margin: 0;
+    border-bottom: 1px solid #dee2e6;   
+}
+.book-cont ul a{
+    font-size: 16px;
+    line-height: 1.5;
+}
+#booking{
+    margin-top: 30%;
+    width: 70%;
+    margin: 25% auto;
+    margin-bottom: 5%;
+}
+#booking h1{
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #5c0931;
+}
+.order-container{
+    border-radius: 24px;
+}

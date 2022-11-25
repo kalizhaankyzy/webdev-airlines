@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:display=swap');
+
+html, body{
+    font-family: 'Barlow', sans-serif;
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.header{
+    width: 100%;
+    padding: 0 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    height: 65px;
+}
+.promotion{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 545px;
+    background-size: cover;
+}
+#kids{
+    background-image: linear-gradient(to right,#662046 ,transparent 100%), url('./src/h1-crew-serving-kids.jpeg');
+}
+#pets{
+    background-image: linear-gradient(to right,#2B2413 ,transparent 100%), url('./src/h1-cat-pet-container.jpeg');
+}
+#services{
+    background-image: linear-gradient(to right,#2B2413 ,transparent 100%), url('./src/h1-generic-hotel.jpeg');
+}
+.promotion-text{
+    position: absolute;
+    z-index: 2;
+    top: 40%;
+    left: 15%;
+    font-size: 20px;
+    line-height: 1.2em;
+    font-weight: 400;
+    color: #fff;
+}
+.wave{
+    position: absolute;
+    top: 80%;
+    z-index: 5;
+    pointer-events: none;
+    width: 100%;
+    left: 50%;
+    margin: 0 0 0 -1000px; 
+}
+.content{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 43%;
+}
+.content h1{
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #5c0931;
+}
+.content p{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #5c0931;
+}
+.content .oryx{
+    display: flex;
+    background-color: #5c0931;
+    margin-top: 5%;
+}
+.content .oryx h1, .content .oryx p{
+    color: #fff;
+}
+.content .oryx h1{
+    font-size: 24px;
+}
+.content .oryx p{
+    font-size: 16px;
+}
+.content .oryx .text{
+    padding: 3% 5%;
+}
+.content .oryx img{
+    width: 40%;
+}
+.content #colour{
+    margin-top: 5%;
+}
+.content .colour-content{
+    display: flex;
+}
+.content-module{
+    position: absolute;
+    left: 0;
+    min-height: 950px;
+    width: 100%;
+}
+#content-module{
+    margin-top: 5%;
+    background:linear-gradient(to left,#2e3849 ,transparent 100%), url('./src/h2-hia-kids-pool.jpeg') center/cover;
+}
+#content-module1{
+    margin-top: 75%;
+    background:linear-gradient(to left, #3e1f24 ,transparent 100%), url('./src/h2-kids-ife-touchscreen.jpeg') center/cover;
+}
+#content-service-module{
+    margin-top: 5%;
+    background:linear-gradient(to right,#662046,transparent 50%), url('./src/h2-wheelchair.jpeg') center/cover;
+}
+#content-service-module1{
+    margin-top: 75%;
+    background:linear-gradient(to right, #662046 ,transparent 50%), url('./src/special-dietry-h2.jpeg') center/cover;
+}
+.content-module .wave{
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    pointer-events: none;
+    width: 2000px;
+    left: 50%;
+    margin: 0 0 0 -1000px;
+    transform: rotateY(180deg);
+}
+.content-module-text{
+    width: 33%;
+    margin-top: 15%;
+    color: #fff;
+    font-weight: 300;
+    line-height: 1.1;
+}
+.content-module-text h1{
+    font-size: 30px;
+}
+.content-module-text p{
+    font-size: 18px;
+}
+#oryx-service{
+    width: 50%;
+    background:linear-gradient(to right, rgb(30, 49, 56) ,transparent 100%), url('./src/rendition.534.400.jpg') center/cover;
+}
+#oryx-service1{
+    width: 50%;
+    background:linear-gradient(to right, rgb(102, 32, 70) ,transparent 100%), url('./src/rendition.534.400\ \(1\).jpg') center/cover;
+}
+#oryx-service a, #oryx-service1 a{
+    background-color: #fff;
+    padding: 11px 21px;
+    border-radius: 4px;
+    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+    color: #fff;
+    background: 0;
+    border: 2px solid #fff;
+    position: absolute;
+    bottom: 10%;
+}
+#oryx-service a:hover, #oryx-service1 a:hover{
+    background-color: #fff;
+    color: #460c2e;
+}

@@ -1,0 +1,36 @@
+.header {
+    background: url(src/asia/asia2.jpg);
+    background-size: cover;
+}
+.grid-container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    width: 1200px;
+    margin: auto;
+}
+.grid-container img{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+    width: 400px;
+    height: 600px;
+}
+.grid-item-4,
+.grid-item-5,
+.grid-item-6{
+    grid-column: span 3;
+}
+.grid-item-4 img,
+.grid-item-5 img,
+.grid-item-6 img{
+    width: 1210px;
+}
+.grid-item-1:hover .btn,
+.grid-item-2:hover .btn,
+.grid-item-3:hover .btn,
+.grid-item-4:hover .btn,
+.grid-item-5:hover .btn,
+.grid-item-6:hover .btn{
+    opacity: 1;
+}
