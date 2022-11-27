@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assets/navbar.css">
     <link rel="stylesheet" href="../assets/footer.css">
     <script src="https://kit.fontawesome.com/3a6c74b0d8.js" crossorigin="anonymous"></script>
+    <script src="../scripts/one-way.js"></script>
 
 </head>
 <body>
@@ -441,10 +442,10 @@
                 <div>
                     <form action="" method="get">
                         <div class="order-select">
-                            <label><input type="radio" name="flight-options" id="flight-option-1" value="round-trip"
-                                    checked>Round Trip</label>
-                            <label><input type="radio" name="flight-options" id="flight-option-2" value="one-way">One
-                                Way</label>
+                            <label><input type="radio" name="flight-options" onclick="hide(0)" id="flight-option-1" value="round-trip"
+                                checked>Round Trip</label>
+                        <label><input type="radio" name="flight-options" onclick="hide(1)" id="flight-option-2" value="one-way">One
+                            Way</label>
                         </div>
         
                         <div class="order-form">
@@ -460,7 +461,7 @@
                                 <p>Depart</p>
                                 <input value="2018-06-27" type="date" name="time-depart" />
                             </div>
-                            <div class="grid-order grid-order-4">
+                            <div class="grid-order grid-order-4" id="one-way">
                                 <p>Return</p>
                                 <input value="2018-06-30" type="date" name="time-return" />
                             </div>
