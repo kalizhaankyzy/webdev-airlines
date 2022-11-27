@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="./assets/navbar.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <script src="https://kit.fontawesome.com/3a6c74b0d8.js" crossorigin="anonymous"></script>
-    <script src="scripts/one-way.js"></script>
+    <script src="./scripts/one-way.js"></script>
+    
     <title>Qatar Airways</title>
 </head>
 
@@ -383,7 +384,7 @@
             </ul>
             <div class="order-container">
                 <div>
-                    <form action="" method="get">
+                    <form action="" method="get" autocomplete="off">
                         <div class="order-select">
                             <label><input type="radio" name="flight-options" onclick="hide(0)" id="flight-option-1" value="round-trip"
                                     checked>Round Trip</label>
@@ -392,14 +393,20 @@
                         </div>
         
                         <div class="order-form">
-                            <div class="grid-order grid-order-1">
+                            <div class="grid-order grid-order-1" >
                                 <p>From</p>
-                                <input type="text" name="order-from" />
+                                
+                                <input type="text" id="input" autocomplete="off" name="order-from" />
+                                
+                                <ul class="list" style="display: block;"></ul>
                             </div>
-                            <div class="grid-order grid-order-2">
+                            <div class="grid-order grid-order-2"  >
                                 <p>To</p>
-                                <input type="text" name="ordet-to" />
+                                <input type="text" id="input-1" autocomplete="off" name="ordet-to" />
+                                <ul class="list1" style="display: block;"></ul>
                             </div>
+                            
+                
                             <div class="grid-order grid-order-3">
                                 <p>Depart</p>
                                 <input value="2018-06-27" type="date" name="time-depart" />
@@ -422,6 +429,7 @@
             </div>
         </div>
     </div>
+    <script src="./scripts/order-city.js"></script>
     <div class="content" id="news">
         <h1>Start planning your next trip</h1>
         <p>Thinking of travelling somewhere soon? Here are some options to help you get started.</p>

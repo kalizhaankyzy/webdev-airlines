@@ -47,6 +47,7 @@ form{
     width: 170px;
 }
 .grid-order-6 input{
+    
     width: 192px;
     margin-right: 5.7%;
     background-color: #ffa903;
@@ -109,4 +110,53 @@ form{
 }
 .grid-order-6 img{
     width: 30px;
+}
+ul {
+    list-style: none;
+  }
+.list{
+    position: absolute;
+    margin-top:-1%;
+    font-size: 20px;
+    
+    width: 180px;
+    
+    background-color: #d7d7d7;
+    border-radius:0 0 5px 5px ;
+   
+    
+}
+.list-items{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+}
+.list-items:hover{
+    background-color: #ffffff;
+}
+.list1{
+    position: absolute;
+    margin: auto;
+    font-size: 20px;
+    
+    width: 180px;
+    background-color: #d7d7d7;
+    border-radius:0 0 5px 5px ;
+    
+}
+.list-items1{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+}
+.list-items1:hover{
+    background-color: #dddddd;
 }
