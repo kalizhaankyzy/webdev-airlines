@@ -1,0 +1,66 @@
+.header {
+    background: url(src/europe/barselon-1.jpg);
+    background-size:cover;
+    background-position: 50%;    
+}
+
+.grid-container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    
+    width: 1200px;
+    margin: auto;
+
+    
+}
+
+
+.grid-container img{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+
+    width: 600px;
+    height: 500px;
+}
+.grid-item-2{
+    grid-column: span 2;
+}
+.grid-item-2 img{
+    width: 1205px;
+    height: 600px;
+    
+}
+
+
+.grid-container .btn {
+    position: absolute;
+    font-size: 30px;
+    background: rgb(187, 28, 55,0.7);
+    padding: 12px 32px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: -5%;
+    opacity: 0;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.3);
+    
+    transition: all 500ms;
+  }
+  .grid-item-1:hover .btn,
+  .grid-item-2:hover .btn,
+  .grid-item-3:hover .btn,
+  .grid-item-4:hover .btn,
+  .grid-item-5:hover .btn,
+  .grid-item-6:hover .btn{
+    opacity: 1;
+  }
+.grid-item h2{
+    color: rgb(255, 255, 255);
+    font-family:swap;
+    font-size: 200%;
+    position: absolute;
+    padding: 0px 30px;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
