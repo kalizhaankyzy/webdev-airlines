@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../assets/ordering.css">
     <link rel="stylesheet" href="../assets/navbar.css">
     <link rel="stylesheet" href="../assets/footer.css">
+    <script src="../scripts/one-way.js"></script>
+    
     <script src="https://kit.fontawesome.com/3a6c74b0d8.js" crossorigin="anonymous"></script>
     <title>Qatar Airways</title>
 </head>
@@ -415,41 +417,48 @@
         <div class="book-cont">
             <div class="order-container">
                 <div>
-                    <form action="" method="get">
-                        <div class="order-select">
-                            <label><input type="radio" name="flight-options" id="flight-option-1" value="round-trip"
-                                    checked>Round Trip</label>
-                            <label><input type="radio" name="flight-options" id="flight-option-2" value="one-way">One
-                                Way</label>
+                  <form action=".././checking_flights.php" name="flightsOrder" method="post" autocomplete="off">
+                    <div class="order-select">
+                        <label><input type="radio" name="flight-options" onclick="hide(0)" id="flight-option-1" value="round-trip"
+                                checked>Round Trip</label>
+                        <label><input type="radio" name="flight-options" onclick="hide(1)" id="flight-option-2" value="one-way">One
+                            Way</label>
+                    </div>
+    
+                    <div class="order-form">
+                        <div class="grid-order grid-order-1" >
+                            <p>From</p>
+                            
+                            <input type="text" id="input" autocomplete="off" name="order-from" />
+                            
+                            <ul class="list" style="display: block;"></ul>
                         </div>
-        
-                        <div class="order-form">
-                            <div class="grid-order grid-order-1">
-                                <p>From</p>
-                                <input type="text" name="order-from" />
-                            </div>
-                            <div class="grid-order grid-order-2">
-                                <p>To</p>
-                                <input type="text" name="ordet-to" />
-                            </div>
-                            <div class="grid-order grid-order-3">
-                                <p>Depart</p>
-                                <input value="2018-06-27" type="date" name="time-depart" />
-                            </div>
-                            <div class="grid-order grid-order-4">
-                                <p>Return</p>
-                                <input value="2018-06-30" type="date" name="time-return" />
-                            </div>
-                            <div class="grid-order grid-order-5">
-                            </div>
-                            <div class="grid-order grid-order-6">
-                                <input type="submit" value="Find Flights">
-                                <!-- <div>
-                                            <img src="src/flight_icon.png" alt="">
-                                        </div> -->
-                            </div>
+                        <div class="grid-order grid-order-2"  >
+                            <p>To</p>
+                            <input type="text" id="input-1" autocomplete="off" name="order-to" />
+                            <ul class="list1" style="display: block;"></ul>
                         </div>
-                    </form>
+                        <script src="../scripts/order-city.js"></script>
+            
+                        <div class="grid-order grid-order-3">
+                            <p>Depart</p>
+                            <input value="2022-11-27" type="date" name="time-depart" />
+                        </div>
+                        <div class="grid-order grid-order-4" id="one-way">
+                            <p>Return</p>
+                            <input value="2022-11-30" type="date" name="time-return" />
+                        </div>
+                        <div class="grid-order grid-order-5">
+                        </div>
+                        <div class="grid-order grid-order-6">
+                            <input type="submit" name="submit" value="Find Flights">
+
+                            <!-- <div>
+                                        <img src="src/flight_icon.png" alt="">
+                                    </div> -->
+                        </div>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>
