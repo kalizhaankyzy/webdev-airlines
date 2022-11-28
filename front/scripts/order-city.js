@@ -6,7 +6,9 @@ let cityies =["Atlanta",
             "Helsinki",
             "Paris",
             "Montreal",
-            "Hydrabad",];
+            "Hydrabad",
+          "Astana",
+          "Almaty",];
 
             let sortedNames = cityies.sort();
             //reference

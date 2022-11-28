@@ -384,7 +384,7 @@
             </ul>
             <div class="order-container">
                 <div>
-                    <form action="" method="get" autocomplete="off">
+                    <form action="checking_flights.php" name="flightsOrder" method="post" autocomplete="off">
                         <div class="order-select">
                             <label><input type="radio" name="flight-options" onclick="hide(0)" id="flight-option-1" value="round-trip"
                                     checked>Round Trip</label>
@@ -402,23 +402,23 @@
                             </div>
                             <div class="grid-order grid-order-2"  >
                                 <p>To</p>
-                                <input type="text" id="input-1" autocomplete="off" name="ordet-to" />
+                                <input type="text" id="input-1" autocomplete="off" name="order-to" />
                                 <ul class="list1" style="display: block;"></ul>
                             </div>
                             
                 
                             <div class="grid-order grid-order-3">
                                 <p>Depart</p>
-                                <input value="2018-06-27" type="date" name="time-depart" />
+                                <input value="2022-11-27" type="date" name="time-depart" />
                             </div>
                             <div class="grid-order grid-order-4" id="one-way">
                                 <p>Return</p>
-                                <input value="2018-06-30" type="date" name="time-return" />
+                                <input value="2022-11-30" type="date" name="time-return" />
                             </div>
                             <div class="grid-order grid-order-5">
                             </div>
                             <div class="grid-order grid-order-6">
-                                <input type="submit" value="Find Flights">
+                                <input type="submit" name="submit" value="Find Flights">
                                 <!-- <div>
                                             <img src="src/flight_icon.png" alt="">
                                         </div> -->
