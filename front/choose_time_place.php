@@ -1,3 +1,27 @@
+<?php
+
+session_start();
+$order_from=filter_var(trim(strtolower($_POST['order-from'])));
+$order_to=filter_var(trim(strtolower($_POST['order-to'])));
+
+$depart_time= date($_POST['time-depart']);
+$return_time=date($_POST['time-return']);
+
+$mysql=new mysqli("localhost","admin","admin","airlines_new");
+if ($mysql->connect_error) {
+    echo "doesnt connect";
+    die("Connection failed: " . $mysql->connect_error);
+
+  }
+  
+$result=$mysql->query("SELECT flight_details.flight_no , flight_details.departure_time, flight_details.arrival_time, flight_details.seats_economy,flight_details.price_economy, flight_details.seats_business,flight_details.price_business, jet.type FROM flight_details  INNER JOIN jet ON flight_details.jet_id=jet.jet_id WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'");
+$flight=$result->fetch_assoc();
+if(count($flight)==0){
+    
+    $_SESSION['Inv']=true;
+    header('Location: ./main.html');
+    exit;}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -362,69 +386,47 @@
         </div>
     </div>
     <div class="content" id="booking">
+
         <div class="book-cont">
-            <ul class="nav nav-tabs wizardpane nav-fill" id="myTab" role="tablist">
-                <li class="nav-item booking">
-                    <a class="nav-link active" id="booking-tab" data-toggle="tab" href="#book" role="tab"
-                        aria-controls="book" aria-selected="true"><i class='fas fa-plane'></i> Book</a>
-                </li>
-                <li class="nav-item managebooking">
-                    <a class="nav-link" id="managebooking-tab" data-toggle="tab" href="#managebooking" role="tab"
-                        aria-controls="managebooking" aria-selected="false"><i class='far fa-calendar-alt'></i> My Trips
-                    </a>
-                </li>
-                <li class="nav-item check-in">
-                    <a class="nav-link" id="checkin-tab" data-toggle="tab" href="#checkin" role="tab"
-                        aria-controls="checkin" aria-selected="false"><i class='far fa-check-circle'></i> Check-in</a>
-                </li>
-                <li class="nav-item flightstatus d-none d-md-block d-lg-block d-xl-block">
-                    <a class="nav-link" id="flightstatus-tab" data-toggle="tab" href="#flightstatus" role="tab"
-                        aria-controls="flightstatus" aria-selected="false"><i class='	fas fa-map-marker-alt'></i> Flight status</a>
-                </li>
-            </ul>
             <div class="order-container">
                 <div>
-                    <form action="choose_time_place.php" name="flightsOrder" method="post" autocomplete="off">
-                        <div class="order-select">
-                            <label><input type="radio" name="flight-options" onclick="hide(0)" id="flight-option-1" value="round-trip"
-                                    checked>Round Trip</label>
-                            <label><input type="radio" name="flight-options" onclick="hide(1)" id="flight-option-2" value="one-way">One
-                                Way</label>
-                        </div>
-        
-                        <div class="order-form">
-                            <div class="grid-order grid-order-1" >
-                                <p>From</p>
-                                
-                                <input type="text" id="input" autocomplete="off" name="order-from" />
-                                
-                                <ul class="list" style="display: block;"></ul>
-                            </div>
-                            <div class="grid-order grid-order-2"  >
-                                <p>To</p>
-                                <input type="text" id="input-1" autocomplete="off" name="order-to" />
-                                <ul class="list1" style="display: block;"></ul>
-                            </div>
-                            
-                
-                            <div class="grid-order grid-order-3">
-                                <p>Depart</p>
-                                <input value="2022-11-27" type="date" name="time-depart" />
-                            </div>
-                            <div class="grid-order grid-order-4" id="one-way">
-                                <p>Return</p>
-                                <input value="2022-11-30" type="date" name="time-return" />
-                            </div>
-                            <div class="grid-order grid-order-5">
-                            </div>
-                            <div class="grid-order grid-order-6">
-                                <input type="submit" name="submit" value="Find Flights">
-                                <!-- <div>
-                                            <img src="src/flight_icon.png" alt="">
-                                        </div> -->
-                            </div>
-                        </div>
-                    </form>
+                    <section>
+                        <h1>Flight Table</h1>
+                        <!-- TABLE CONSTRUCTION -->
+                        <table>
+                            <tr>
+                                <th>Flight No</th>
+                                <th>Departure Time</th>
+                                <th>Arrival Time</th>
+                                <th>Jet</th>
+                                <th>Seats Economy</th>
+                                <th>Price Economy</th>
+                                <th>Seats Business</th>
+                                <th>Price Business</th>
+                            </tr>
+                            <!-- PHP CODE TO FETCH DATA FROM ROWS -->
+                            <?php
+                                // LOOP TILL END OF DATA
+                                while($rows=$result->fetch_assoc())
+                                {
+                            ?>
+                            <tr>
+                                <!-- FETCHING DATA FROM EACH
+                                    ROW OF EVERY COLUMN -->
+                                <td><?php echo $rows['flight_no'];?></td>
+                                <td><?php echo $rows['departure_time'];?></td>
+                                <td><?php echo $rows['arrival_time'];?></td>
+                                <td><?php echo $rows['type'];?></td>
+                                <td><?php echo $rows['seats_economy'];?></td>
+                                <td><?php echo $rows['price_economy'];?></td>
+                                <td><?php echo $rows['seats_business'];?></td>
+                                <td><?php echo $rows['price_business'];?></td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                        </table>
+                    </section>
                 </div>
             </div>
         </div>
