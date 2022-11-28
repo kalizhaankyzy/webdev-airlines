@@ -24,6 +24,11 @@ CREATE TABLE jet(
     total_capacity VARCHAR(30) NOT NULL
 )
 
+INSERT INTO jet(jet_id, type, total_capacity) VALUES
+('10001', 'Boeing 737', 300),
+('10002', 'Boeing 737', 300)
+
+
 CREATE TABLE flight_details(
     flight_no VARCHAR(20) NOT NULL, 
     from_city VARCHAR(30) NOT NULL,
@@ -43,18 +48,19 @@ CREATE TABLE flight_details(
 ALTER TABLE `flight_details`
 ADD PRIMARY KEY (`flight_no`,`departure_date`);
 
+INSERT INTO flight_details (flight_no, from_city, to_city, departure_date, arrival_date, departure_time, arrival_time, jet_id, seats_economy, seats_business, price_economy, price_business) VALUES
+('AA101', 'almaty', 'astana', '2022-12-01', '2022-12-02', '21:00:00', '01:00:00', '10001', 195, 96, 25000, 47500 ),
+('AA102', 'almaty', 'astana', '2022-12-01', '2022-12-02', '23:00:00', '03:00:00', '10002', 195, 96, 25000, 47500 );
 
 CREATE TABLE ticket(
     pnr VARCHAR(20) PRIMARY KEY NOT NULL,
     rsrv_date DATE NOT NULL,
     flight_no VARCHAR(20),
-    departure_date DATE DEFAULT NULL,
     class VARCHAR(10) NOT NULL,
     booking_status VARCHAR(20),
     passengers_num int(5),
     cust_id VARCHAR(20),
-    payment_id VARCHAR(20) DEFAULT NULL,
-    FOREIGN KEY (flight_no, departure_date) REFERENCES flight_details(flight_no, departure_date) ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (flight_no) REFERENCES flight_details(flight_no) ON DELETE SET NULL ON UPDATE CASCADE,
     FOREIGN KEY (cust_id) REFERENCES customer(cust_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
 
@@ -65,8 +71,3 @@ CREATE TABLE payments(
     pnr VARCHAR(20),
     FOREIGN KEY (pnr) REFERENCES ticket(pnr) ON UPDATE CASCADE
 )
-
-
-CREATE TRIGGER `update_ticket_after_payment` AFTER INSERT ON `payments` FOR EACH ROW UPDATE ticket
-     SET booking_status='CONFIRMED', payment_id= NEW.payment_id
-   WHERE pnr = NEW.pnr
