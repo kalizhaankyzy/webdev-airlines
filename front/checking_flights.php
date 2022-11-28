@@ -6,10 +6,10 @@
     // $depart_time= date($_POST['time-depart']);
     // $return_time=date($_POST['time-return']);
     
-    // $mysql=new mysqli("localhost","admin","admin","airlines_new");
-    // if ($mysql->connect_error) {
-    //     echo "doesnt connect";
-    //     die("Connection failed: " . $mysql->connect_error);
+    $mysql=new mysqli("localhost","root","qwerty123","airlines");
+    if ($mysql->connect_error) {
+        echo "doesnt connect";
+        die("Connection failed: " . $mysql->connect_error);
 
     //   }
     // $result=$mysql->query("SELECT*FROM flight_details WHERE from_city='$order_from' AND to_city='$order_to' AND departure_date='".$depart_time."'");
