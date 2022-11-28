@@ -6,7 +6,7 @@
     $depart_time= date($_POST['time-depart']);
     $return_time=date($_POST['time-return']);
     
-    $mysql=new mysqli("localhost","admin","admin","airlines_new");
+    $mysql=new mysqli("localhost","root","qwerty123","airlines");
     if ($mysql->connect_error) {
         echo "doesnt connect";
         die("Connection failed: " . $mysql->connect_error);
