@@ -29,6 +29,10 @@ INSERT INTO jet(jet_id, type, total_capacity) VALUES
 ('10002', 'Boeing 737', 300);
 
 
+
+
+
+
 CREATE TABLE flight_details(
     flight_no VARCHAR(20) NOT NULL PRIMARY KEY, 
     from_city VARCHAR(30) NOT NULL,
@@ -70,6 +74,8 @@ CREATE TABLE payments(
     FOREIGN KEY (pnr) REFERENCES ticket(pnr) ON UPDATE CASCADE,
     FOREIGN KEY (jet_id) REFERENCES jet(jet_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
 
@@ -132,3 +138,29 @@ COMMENT 'The prices will be higher to 10% at 06:00 daily!'
 DO
     UPDATE flight_details SET price_economy = price_economy * 1.1, price_business = price_business * 1.1;
 
+
+
+INSERT INTO jet(jet_id, type, total_capacity) VALUES
+('10003', 'Air Asia', 300),
+('10004', 'Air India', 300),
+('10005', 'Alliance Air', 150),
+('10006', 'Air Astana', 350),
+('10007', 'Scat', 300),
+('10008', 'Vistara', 300),
+('10009', 'Indigo', 350),
+('10010', 'Alaska Airlines', 300);
+
+
+INSERT INTO flight_details 
+(flight_no, from_city, to_city, departure_date, arrival_date, departure_time, arrival_time, jet_id, seats_economy, seats_business, price_economy, price_business) 
+VALUES
+('AA103', 'almaty', 'astana', '2022-12-01', '2022-12-02', '21:00:00', '01:00:00', '10006', 195, 96, 25000, 47500 ),
+('AA104', 'astana', 'alaska', '2022-12-01', '2022-12-01', '06:00:00', '12:00:00', '10010', 200, 95, 365000, 395000 ),
+('AA105', 'almaty', 'india', '2022-12-01', '2022-12-01', '10:00:00', '14:00:00', '10009', 200, 95, 215000, 265000 ),
+('AA106', 'almaty', 'atlanta', '2022-12-09', '2022-12-09', '06:00:00', '12:00:00', '10008', 195, 96, 325000, 375500 ),
+('AA107', 'almaty', 'bali', '2022-12-09', '2022-12-09', '09:00:00', '14:00:00', '10007', 195, 96, 365000, 395000 ),
+('AA108', 'almaty', 'moscow', '2022-12-09', '2022-12-09', '09:15:00', '13:15:00', '10005', 195, 96, 125000, 155000 ),
+('AA109', 'almaty', 'astana', '2022-12-10', '2022-12-10', '18:00:00', '21:00:00', '10006', 195, 96, 25000, 47500 ),
+('AB101', 'astana', 'india', '2022-12-10', '2022-12-11', '23:40:00', '04:40:00', '10004', 200, 95, 255000, 305000 ),
+('AB102', 'almaty', 'india', '2022-12-11', '2022-12-11', '01:00:00', '05:00:00', '10009', 200, 95, 215000, 265000 ),
+('AB103', 'almaty', 'atlanta', '2022-12-11', '2022-12-11', '06:00:00', '12:00:00', '10008', 195, 96, 325000, 375500 );
