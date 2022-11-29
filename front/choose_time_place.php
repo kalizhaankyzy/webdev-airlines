@@ -24,7 +24,8 @@ if ($mysql->connect_error) {
 
   }
   
-$result=$mysql->query("SELECT flight_details.flight_no , flight_details.departure_time, flight_details.arrival_time, flight_details.seats_economy,flight_details.price_economy, flight_details.seats_business,flight_details.price_business, jet.type FROM flight_details  INNER JOIN jet ON flight_details.jet_id=jet.jet_id WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'");
+$result=$mysql->query("SELECT * FROM flight_details  inner JOIN jet ON flight_details.jet_id=jet.jet_id 
+    WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'");
 $flight=$result->fetch_assoc();
 if(count($flight)==0){
     
@@ -418,10 +419,11 @@ if(count($flight)==0){
                     
                     <!-- PHP CODE TO FETCH DATA FROM ROWS -->
                     <?php
+                        
                         $count=0;
                         // LOOP TILL END OF DATA
                         while($rows=$result->fetch_assoc())
-                        {
+                        { 
                     ?>
                     <tbody>
                         <tr>
