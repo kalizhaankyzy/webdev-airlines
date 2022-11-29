@@ -1,3 +1,24 @@
+<?php
+    session_start();
+    $count_submit=0;
+    $data_arr=$_SESSION['book_flights'];
+    if ($_SERVER['REQUEST_METHOD'] === "POST") {
+        // Something posted
+        while(true){
+            $submited_name="submit$count_submit";
+            if (isset($_POST[$submited_name])){
+                break;
+            }
+            $count_submit++;
+        }
+        $submited_name=$count_submit;
+      }
+    else
+    $submited_name="-1";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -364,6 +385,26 @@
     <div class="content" id="booking">
         <div class="book-cont">
                 <h1>Sucsessfully Booked</h1>
+                <h1>
+                </h1>
+
+                <table>
+                <tr>
+                    <th>Flight NO</th>
+                    <th>Departure Time</th>
+                </tr>
+
+                <?php
+                
+                for ($i=0;$i<8;$i++)
+                {
+                    ?>
+                        <?php echo $data_arr[$count_submit][$i]; ?><br>
+                        
+                    <?php
+                }
+                ?>
+                </table>
         </div>
         </div>
     </div>
@@ -488,3 +529,6 @@
 </body>
 
 </html>
+<?php
+session_destroy();
+?>

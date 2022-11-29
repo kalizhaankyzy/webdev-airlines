@@ -1,6 +1,16 @@
 <?php
 
 session_start();
+$data_arr=array(
+    0=>array(),
+    1=>array(),
+    2=>array(),
+    3=>array(),
+    4=>array(),
+    5=>array(),
+    6=>array(),
+    7=>array()
+);
 $order_from=filter_var(trim(strtolower($_POST['order-from'])));
 $order_to=filter_var(trim(strtolower($_POST['order-to'])));
 
@@ -386,49 +396,67 @@ if(count($flight)==0){
         </div>
     </div>
     <div class="content" id="booking">
-
         <div class="book-cont">
-            <div class="order-container">
-                <div>
-                    <section>
-                        <h1>Flight Table</h1>
-                        <!-- TABLE CONSTRUCTION -->
-                        <table>
-                            <tr>
-                                <th>Flight No</th>
-                                <th>Departure Time</th>
-                                <th>Arrival Time</th>
-                                <th>Jet</th>
-                                <th>Seats Economy</th>
-                                <th>Price Economy</th>
-                                <th>Seats Business</th>
-                                <th>Price Business</th>
-                            </tr>
-                            <!-- PHP CODE TO FETCH DATA FROM ROWS -->
+            
+                <h1>Flight Table</h1>
+                <!-- TABLE CONSTRUCTION -->
+                <form action="book_flights.php" method="post" name="book_flights_form">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Flight No</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                            <th>Jet</th>
+                            <th>Seats Economy</th>
+                            <th>Price Economy</th>
+                            <th>Seats Business</th>
+                            <th>Price Business</th>
+                            
+                        </tr>
+                    </thead>
+                    
+                    <!-- PHP CODE TO FETCH DATA FROM ROWS -->
+                    <?php
+                        $count=0;
+                        // LOOP TILL END OF DATA
+                        while($rows=$result->fetch_assoc())
+                        {
+                    ?>
+                    <tbody>
+                        <tr>
+                            <!-- FETCHING DATA FROM EACH
+                                ROW OF EVERY COLUMN -->
+                            <td><?php echo $rows['flight_no'];?></td>
+                            <td><?php echo $rows['departure_time'];?></td>
+                            <td><?php echo $rows['arrival_time'];?></td>
+                            <td><?php echo $rows['type'];?></td>
+                            <td><?php echo $rows['seats_economy'];?></td>
+                            <td><?php echo $rows['price_economy'];?></td>
+                            <td><?php echo $rows['seats_business'];?></td>
+                            <td><?php echo $rows['price_business'];?></td>
+                            <td>
                             <?php
-                                // LOOP TILL END OF DATA
-                                while($rows=$result->fetch_assoc())
-                                {
+
+                            array_push($data_arr[$count],$rows['flight_no'],$rows['departure_time'],$rows['arrival_time'], $rows['type'],$rows['seats_economy'],$rows['price_economy'],$rows['seats_business'],$rows['price_business']);
+                            
+                            echo " <input type='submit' name='submit$count' value='Book Ticket'> ";
+                            $count++;
                             ?>
-                            <tr>
-                                <!-- FETCHING DATA FROM EACH
-                                    ROW OF EVERY COLUMN -->
-                                <td><?php echo $rows['flight_no'];?></td>
-                                <td><?php echo $rows['departure_time'];?></td>
-                                <td><?php echo $rows['arrival_time'];?></td>
-                                <td><?php echo $rows['type'];?></td>
-                                <td><?php echo $rows['seats_economy'];?></td>
-                                <td><?php echo $rows['price_economy'];?></td>
-                                <td><?php echo $rows['seats_business'];?></td>
-                                <td><?php echo $rows['price_business'];?></td>
-                            </tr>
-                            <?php
-                                }
-                            ?>
-                        </table>
-                    </section>
-                </div>
-            </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    
+                    <?php
+
+                        }
+                        $_SESSION['book_flights']=$data_arr;
+                    ?>
+                </table>
+                </form>
+                
+            
         </div>
     </div>
     <script src="./scripts/order-city.js"></script>
