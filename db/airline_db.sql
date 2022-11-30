@@ -18,6 +18,17 @@ CREATE TABLE customer(
     address VARCHAR(30) DEFAULT NULL
 );
 
+CREATE TABLE passengers(
+    pass_id INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    birth_date DATE NOT NULL,
+    nationality VARCHAR(30) NOT NULL,
+    gender VARCHAR(30) NOT NULL,
+    passport_num VARCHAR(30) NOT NULL,
+    passport_exp_date VARCHAR(30) NOT NULL
+);
+
 CREATE TABLE jet(
     jet_id VARCHAR(20) PRIMARY KEY NOT NULL,
     type VARCHAR(30) NOT NULL,
