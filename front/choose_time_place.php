@@ -17,21 +17,15 @@ $order_to=filter_var(trim(strtolower($_POST['order-to'])));
 $depart_time= date($_POST['time-depart']);
 $return_time=date($_POST['time-return']);
 
-$mysql=new mysqli("localhost","admin","admin","airlines_new");
-if ($mysql->connect_error) {
-    echo "doesnt connect";
-    die("Connection failed: " . $mysql->connect_error);
+$mysql = mysqli_connect("localhost","root","qwerty123","airlines");
+if (!$mysql) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-  }
-  
-$result=$mysql->query("SELECT * FROM flight_details  inner JOIN jet ON flight_details.jet_id=jet.jet_id 
-    WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'");
-$flight=$result->fetch_assoc();
-if(count($flight)==0){
-    
-    $_SESSION['Inv']=true;
-    header('Location: ./main.html');
-    exit;}
+$query = "SELECT * FROM flight_details JOIN jet ON flight_details.jet_id=jet.jet_id 
+WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'";
+$result = mysqli_query($mysql, $query) or die(mysql_error());
+$rows = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -419,28 +413,28 @@ if(count($flight)==0){
                     
                     <!-- PHP CODE TO FETCH DATA FROM ROWS -->
                     <?php
-                        
-                        $count=0;
-                        // LOOP TILL END OF DATA
-                        while($rows=$result->fetch_assoc())
-                        { 
+                        if ($rows >= 1) {
+                            // LOOP TILL END OF DATA
+                            while($row = $result->fetch_assoc()){ 
+                            $count=0;
+
                     ?>
                     <tbody>
                         <tr>
                             <!-- FETCHING DATA FROM EACH
                                 ROW OF EVERY COLUMN -->
-                            <td><?php echo $rows['flight_no'];?></td>
-                            <td><?php echo $rows['departure_time'];?></td>
-                            <td><?php echo $rows['arrival_time'];?></td>
-                            <td><?php echo $rows['type'];?></td>
-                            <td><?php echo $rows['seats_economy'];?></td>
-                            <td><?php echo $rows['price_economy'];?></td>
-                            <td><?php echo $rows['seats_business'];?></td>
-                            <td><?php echo $rows['price_business'];?></td>
+                                <td><?php echo $row['flight_no'];?></td>
+                                <td><?php echo $row['departure_time'];?></td>
+                                <td><?php echo $row['arrival_time'];?></td>
+                                <td><?php echo $row['type'];?></td>
+                                <td><?php echo $row['seats_economy'];?></td>
+                                <td><?php echo $row['price_economy'];?></td>
+                                <td><?php echo $row['seats_business'];?></td>
+                                <td><?php echo $row['price_business'];?></td>
                             <td>
                             <?php
 
-                            array_push($data_arr[$count],$rows['flight_no'],$rows['departure_time'],$rows['arrival_time'], $rows['type'],$rows['seats_economy'],$rows['price_economy'],$rows['seats_business'],$rows['price_business']);
+                            array_push($data_arr[$count],$row['flight_no'],$row['departure_time'],$row['arrival_time'], $row['type'],$row['seats_economy'],$row['price_economy'],$row['seats_business'],$row['price_business']);
                             
                             echo " <input type='submit' name='submit$count' value='Book Ticket'> ";
                             $count++;
@@ -453,6 +447,8 @@ if(count($flight)==0){
                     <?php
 
                         }
+                    }
+                        print( $count );
                         $_SESSION['book_flights']=$data_arr;
                     ?>
                 </table>
