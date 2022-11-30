@@ -17,7 +17,7 @@ $order_to=filter_var(trim(strtolower($_POST['order-to'])));
 $depart_time= date($_POST['time-depart']);
 $return_time=date($_POST['time-return']);
 
-$mysql = mysqli_connect("localhost","root","qwerty123","airlines");
+$mysql = mysqli_connect("localhost","admin","admin","airlines");
 if (!$mysql) {
     die("Connection failed: " . mysqli_connect_error());
 }

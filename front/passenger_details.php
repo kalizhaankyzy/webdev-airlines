@@ -1,32 +1,4 @@
-<?php
 
-session_start();
-$data_arr=array(
-    0=>array(),
-    1=>array(),
-    2=>array(),
-    3=>array(),
-    4=>array(),
-    5=>array(),
-    6=>array(),
-    7=>array()
-);
-$order_from=filter_var(trim(strtolower($_POST['order-from'])));
-$order_to=filter_var(trim(strtolower($_POST['order-to'])));
-
-$depart_time= date($_POST['time-depart']);
-$return_time=date($_POST['time-return']);
-
-$mysql = mysqli_connect("localhost","admin","admin","airlines");
-if (!$mysql) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$query = "SELECT * FROM flight_details JOIN jet ON flight_details.jet_id=jet.jet_id 
-WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'";
-$result = mysqli_query($mysql, $query);
-$rows = mysqli_num_rows($result);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -393,66 +365,42 @@ $rows = mysqli_num_rows($result);
     <div class="content" id="booking">
         <div class="book-cont">
             
-                <h1>Flight Table</h1>
-                <!-- TABLE CONSTRUCTION -->
-                <form action="book_flights.php" method="post" name="book_flights_form">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Flight No</th>
-                            <th>Departure Time</th>
-                            <th>Arrival Time</th>
-                            <th>Jet</th>
-                            <th>Seats Economy</th>
-                            <th>Price Economy</th>
-                            <th>Seats Business</th>
-                            <th>Price Business</th>
-                            
-                        </tr>
-                    </thead>
-                    
-                    <!-- PHP CODE TO FETCH DATA FROM ROWS -->
-                    <?php
-                        if ($rows >= 1) {
-                            // LOOP TILL END OF DATA
-                            while($row = $result->fetch_assoc()){ 
-                            $count=0;
+                <h1>Passanger Details</h1>
+                <form action="inserting_data.php" method="post" >
+                    <div>
+                    <label> Name </label> <input type="text" name="passname" id="passname" required>
+                    </div>
+                    <div>
+                    <label> Last Name </label> <input type="text" name="passlastname" id="passlastname" required>
+                    </div>
+                    <div>
+                    <label> Birth Date </label> <input type="date" name="passdate" id="passdate" required>
+                    </div>
+                    <div>
+                    <label> Nationality </label> <input type="text" name="passnation" id="passnation" required>
+                    <ul class="list" style="display: block;"></ul>
+                    </div>
 
-                    ?>
-                    <tbody>
-                        <tr>
-                            <!-- FETCHING DATA FROM EACH
-                                ROW OF EVERY COLUMN -->
-                                <td><?php echo $row['flight_no'];?></td>
-                                <td><?php echo $row['departure_time'];?></td>
-                                <td><?php echo $row['arrival_time'];?></td>
-                                <td><?php echo $row['type'];?></td>
-                                <td><?php echo $row['seats_economy'];?></td>
-                                <td><?php echo $row['price_economy'];?></td>
-                                <td><?php echo $row['seats_business'];?></td>
-                                <td><?php echo $row['price_business'];?></td>
-                            <td>
-                            <?php
-
-                            array_push($data_arr[$count],$row['flight_no'],$row['departure_time'],$row['arrival_time'], $row['type'],$row['seats_economy'],$row['price_economy'],$row['seats_business'],$row['price_business']);
-                            
-                            echo " <input type='submit' name='submit$count' value='Book Ticket'> ";
-                            $count++;
-                            ?>
-                            </td>
-
-                        </tr>
-                    </tbody>
-                    
-                    <?php
-
-                        }
-                    }
-                        print( $count );
-                        $_SESSION['book_flights']=$data_arr;
-                    ?>
-                </table>
+                    <label> Gender </label>
+                    <div>
+                    <label> <input type="radio" name="passgender" id="passmale" value="Male" required> Male </label>
+                    <label> <input type="radio" name="passgender" id="passfemale"  value="Female" required> Female </label>
+                        
+                        
+                    </div>
+                    <label> Passport </label>
+                    <div>
+                        <input type="text" name="passport" id="passport" required>
+                    </div>
+                    <label>  Passport Date </label>
+                    <div>
+                        <input type="date" name="passportdate" id="passportdate" >
+                    </div>
+                    <div>
+                        <input type="submit" value="Continue" name="passSubmit">
+                    </div>
                 </form>
+                <script src="scripts/order-nation.js"></script>
                 
             
         </div>
