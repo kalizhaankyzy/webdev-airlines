@@ -1,24 +1,32 @@
 <?php
-    session_start();
-    $count_submit=0;
-    $data_arr=$_SESSION['book_flights'];
-    if ($_SERVER['REQUEST_METHOD'] === "POST") {
-        // Something posted
-        while(true){
-            $submited_name="submit$count_submit";
-            if (isset($_POST[$submited_name])){
-                break;
-            }
-            $count_submit++;
-        }
-        $submited_name=$count_submit;
-      }
-    else
-    $submited_name="-1";
 
+session_start();
+$data_arr=array(
+    0=>array(),
+    1=>array(),
+    2=>array(),
+    3=>array(),
+    4=>array(),
+    5=>array(),
+    6=>array(),
+    7=>array()
+);
+$order_from=filter_var(trim(strtolower($_POST['order-from'])));
+$order_to=filter_var(trim(strtolower($_POST['order-to'])));
+
+$depart_time= date($_POST['time-depart']);
+$return_time=date($_POST['time-return']);
+
+$mysql = mysqli_connect("localhost","admin","admin","airlines");
+if (!$mysql) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$query = "SELECT * FROM flight_details JOIN jet ON flight_details.jet_id=jet.jet_id 
+WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'";
+$result = mysqli_query($mysql, $query);
+$rows = mysqli_num_rows($result);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -384,30 +392,69 @@
     </div>
     <div class="content" id="booking">
         <div class="book-cont">
-                <h1>Sucsessfully Booked</h1>
-                <h1>
-                </h1>
-
-                <table>
-                <tr>
-                    <th>Flight NO</th>
-                    <th>Departure Time</th>
-                </tr>
-
-                <?php
-                
-                for ($i=0;$i<8;$i++)
-                {
-                    ?>
-                        <?php echo $data_arr[$count_submit][$i]; ?><br>
-                        
+            
+                <h1>Flight Table</h1>
+                <!-- TABLE CONSTRUCTION -->
+                <form action="book_flights.php" method="post" name="book_flights_form">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Flight No</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                            <th>Jet</th>
+                            <th>Seats Economy</th>
+                            <th>Price Economy</th>
+                            <th>Seats Business</th>
+                            <th>Price Business</th>
+                            
+                        </tr>
+                    </thead>
+                    
+                    <!-- PHP CODE TO FETCH DATA FROM ROWS -->
                     <?php
-                }
-                ?>
+                        if ($rows >= 1) {
+                            // LOOP TILL END OF DATA
+                            while($row = $result->fetch_assoc()){ 
+                            $count=0;
+
+                    ?>
+                    <tbody>
+                        <tr>
+                            <!-- FETCHING DATA FROM EACH
+                                ROW OF EVERY COLUMN -->
+                                <td><?php echo $row['flight_no'];?></td>
+                                <td><?php echo $row['departure_time'];?></td>
+                                <td><?php echo $row['arrival_time'];?></td>
+                                <td><?php echo $row['type'];?></td>
+                                <td><?php echo $row['seats_economy'];?></td>
+                                <td><?php echo $row['price_economy'];?></td>
+                                <td><?php echo $row['seats_business'];?></td>
+                                <td><?php echo $row['price_business'];?></td>
+                            <td>
+                            <?php
+
+                            array_push($data_arr[$count],$row['flight_no'],$row['departure_time'],$row['arrival_time'], $row['type'],$row['seats_economy'],$row['price_economy'],$row['seats_business'],$row['price_business']);
+                            
+                            echo " <input type='submit' name='submit$count' value='Book Ticket'> ";
+                            $count++;
+                            ?>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    
+                    <?php
+
+                        }
+                    }
+                        print( $count );
+                        $_SESSION['book_flights']=$data_arr;
+                    ?>
                 </table>
-                <input type='submit' name='economy_ticket' value='economy_ticket'>
-                <input type='submit' name='business_ticket' value='economy_ticket'>
-        </div>
+                </form>
+                
+            
         </div>
     </div>
     <script src="./scripts/order-city.js"></script>
@@ -531,6 +578,3 @@
 </body>
 
 </html>
-<?php
-session_destroy();
-?>
