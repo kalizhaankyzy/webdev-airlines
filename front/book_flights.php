@@ -38,27 +38,27 @@
             <h1>Flight details</h1>
                 <div class="order-container">
                     <div>
-                    <form action="" name="flightsClass" method="post" autocomplete="off">
+                    <form action="passenger_details.php" name="flightsClass" method="post" autocomplete="off">
         
                         <div class="order-form">
                             <div class="destination">
                                 <div class="grid-order grid-order-1" >
-                                    <p class="time"><?php $data_arr[$count_submit][0]; ?></p>
-                                    <p class="caption">Almaty</p>
+                                    <p class="time"><?php echo $data_arr[$count_submit][3]; ?></p>
+                                    <p class="caption"><?php echo $data_arr[$count_submit][1]; ?></p>
                                 </div>
                                 <div class="grid-order grid-order-2"  >
-                                    <p class="time">11:05</p>
-                                    <p class="caption" style="text-align: end;">Almaty</p>
+                                    <p class="time"><?php echo $data_arr[$count_submit][4]; ?></p>
+                                    <p class="caption"><?php echo $data_arr[$count_submit][2]; ?></p>
                                 </div>
                             </div>
                             <div class="class">
                                 <div name="class_economy" id="class_economy" class="customButton" onClick="document.forms['flightsClass'].submit()">
                                     <p>Economy</p>
-                                    <p class="price">300,000 tenge</p>
+                                    <p class="price"><?php echo $data_arr[$count_submit][7]; ?></p>
                                 </div>
                                 <div name="class_business" id="class_business" class="customButton" onClick="document.forms['flightsClass'].submit()">
                                     <p>Business</p>
-                                    <p class="price">300,000 tenge</p>
+                                    <p class="price"><?php echo $data_arr[$count_submit][9]; ?></p>
                                 </div>
                             </div>
                         </div>

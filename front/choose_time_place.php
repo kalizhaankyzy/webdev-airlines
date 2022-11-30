@@ -9,7 +9,9 @@ $data_arr=array(
     4=>array(),
     5=>array(),
     6=>array(),
-    7=>array()
+    7=>array(),
+    8=>array(),
+    9=>array()
 );
 $order_from=filter_var(trim(strtolower($_POST['order-from'])));
 $order_to=filter_var(trim(strtolower($_POST['order-to'])));
@@ -413,10 +415,11 @@ $rows = mysqli_num_rows($result);
                     
                     <!-- PHP CODE TO FETCH DATA FROM ROWS -->
                     <?php
+                    $count=0;
                         if ($rows >= 1) {
                             // LOOP TILL END OF DATA
                             while($row = $result->fetch_assoc()){ 
-                            $count=0;
+                            
 
                     ?>
                     <tbody>
@@ -434,7 +437,7 @@ $rows = mysqli_num_rows($result);
                             <td>
                             <?php
 
-                            array_push($data_arr[$count],$row['flight_no'],$row['departure_time'],$row['arrival_time'], $row['type'],$row['seats_economy'],$row['price_economy'],$row['seats_business'],$row['price_business']);
+                            array_push($data_arr[$count],$row['flight_no'],$row['from_city'],$row['to_city'],$row['departure_time'],$row['arrival_time'], $row['type'],$row['seats_economy'],$row['price_economy'],$row['seats_business'],$row['price_business']);
                             
                             echo " <input type='submit' name='submit$count' value='Book Ticket'> ";
                             $count++;
