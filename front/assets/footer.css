@@ -3,6 +3,7 @@
     position: absolute;
     width: 100%;
     left: 0;
+    top: 100%;
     z-index: 4;
     display: flex;
     justify-content: space-evenly;
