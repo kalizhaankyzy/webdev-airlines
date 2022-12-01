@@ -379,7 +379,16 @@
                     </div>
                 </li>
                 <li class="has-dropdown">
-                    <a href="http://localhost/webdev-airlines/front/login/" class="dropbtn">Login | Sign up</a>
+                    <?php if(isset($_SESSION['login']) && $_SESSION['login']==1){ ?>
+                        <a href="main.php?logout=true" class="dropbtn"'>Logout</a>
+                    <?php   } 
+                    if (isset($_GET['logout'])) {
+                        $_SESSION['login']=0;
+                      }
+                      ?>
+                    <?php if(empty($_SESSION['login']) || $_SESSION['login']==0){ ?>
+                        <a href="http://localhost/webdev-airlines/front/login/" class="dropbtn">Login | Sign up</a>
+                    <?php   } ?>
                 </li>
             </ul>
             
@@ -460,7 +469,7 @@
                             </div>
                             <div class="grid-order grid-order-4" id="one-way">
                                 <p>Return</p>
-                                <input value="<?php echo htmlspecialchars($values['time-return']);?>" type="date" name="time-return" />
+                                <input value="<?php echo htmlspecialchars($values['time-return']);?>" type="date" name="time-return"/>
                                 <?php if (in_array('time-return', $errors)): ?>
                                     <span class="error">Missing</span>
                                 <?php endif; ?>
@@ -468,7 +477,7 @@
                             <div class="grid-order grid-order-5">
                             </div>
                             <div class="grid-order grid-order-6">
-                                <input type="submit" name="submit" value="Find Flights">
+                                <input type="submit" name="submit" value="Find Flights" <?php if(empty($_SESSION['login']) || $_SESSION['login']==0){ ?> disabled style="color: grey; background-color: inherit;" <?php   } ?>>
                             </div>
                         </div>
                         

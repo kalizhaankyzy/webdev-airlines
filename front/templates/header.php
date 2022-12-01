@@ -392,6 +392,18 @@
                     </div>
                 </div>
             </li>
+            <li class="has-dropdown">
+                    <?php if(isset($_SESSION['login']) && $_SESSION['login']==1){ ?>
+                        <a href="main.php?logout=true" class="dropbtn"'>Logout</a>
+                    <?php   } 
+                    if (isset($_GET['logout'])) {
+                        session_destroy();
+                      }
+                      ?>
+                    <?php if(empty($_SESSION['login']) || $_SESSION['login']==0){ ?>
+                        <a href="http://localhost/webdev-airlines/front/login/" class="dropbtn">Login | Sign up</a>
+                    <?php   } ?>
+                </li>
         </ul>
         
       </nav>
