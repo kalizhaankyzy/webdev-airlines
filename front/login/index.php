@@ -25,11 +25,11 @@
     $errMsg="";
     if (isset($_POST['login-submit'])) {
       $username = stripslashes($_REQUEST['username']);
-      $username = mysqli_real_escape_string($mysqli, $username);
+      $username = mysqli_real_escape_string($mysql, $username);
       $password = stripslashes($_REQUEST['password']);
-      $password = mysqli_real_escape_string($mysqli, $password);
+      $password = mysqli_real_escape_string($mysql, $password);
       $query = "SELECT * FROM `customer` WHERE full_name='$username' AND password='$password'";
-      $result = mysqli_query($mysqli, $query) or die(mysql_error());
+      $result = mysqli_query($mysql, $query) or die(mysql_error());
       $rows = mysqli_num_rows($result);
       if ($rows == 1) {
           echo 'Success';
@@ -42,19 +42,19 @@
     }
     if (isset($_REQUEST['register-submit'])) {
       $username = stripslashes($_REQUEST['username']);
-      $username = mysqli_real_escape_string($mysqli, $username);
+      $username = mysqli_real_escape_string($mysql, $username);
       $email = stripslashes($_REQUEST['email']);
-      $email = mysqli_real_escape_string($mysqli, $email);
+      $email = mysqli_real_escape_string($mysql, $email);
       $password = stripslashes($_REQUEST['password']);
-      $password = mysqli_real_escape_string($mysqli, $password);
+      $password = mysqli_real_escape_string($mysql, $password);
       $phone_no = stripslashes($_REQUEST['phone-no']);
-      $phone_no = mysqli_real_escape_string($mysqli, $phone_no);
+      $phone_no = mysqli_real_escape_string($mysql, $phone_no);
       $address = stripslashes($_REQUEST['address']);
-      $address = mysqli_real_escape_string($mysqli, $address);
+      $address = mysqli_real_escape_string($mysql, $address);
 
       if($username != '' && $email != '' && $password != '' && $phone_no != '' && $address != ''){
         $query = "INSERT INTO `customer` (`full_name`, `email`, `password`, `phone_no`, `address`) VALUES ('$username','$email','$password','$phone_no','$address')";
-        $result = mysqli_query($mysqli, $query);
+        $result = mysqli_query($mysql, $query);
         if ($result) {
           echo $result;
           $_SESSION['login'] = 1;

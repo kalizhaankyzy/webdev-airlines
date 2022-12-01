@@ -1,4 +1,5 @@
 <?php
+require('connection.php');
 session_start();
 $data_arr=array(
     0=>array(),
@@ -26,10 +27,6 @@ if($return_time==""){
     $one_way=true;
 }
 
-$mysql = mysqli_connect("localhost","root","qwerty123","airlines");
-if (!$mysql) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 if($one_way){
     $query = "SELECT * FROM flight_details JOIN jet ON flight_details.jet_id=jet.jet_id 
     WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'";
