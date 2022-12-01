@@ -37,7 +37,7 @@
             <h1>Flight details</h1>
                 <div class="order-container">
                     <div>
-                    <form action="" name="flightsClass" method="post" autocomplete="off">
+                   
                         <div class="order-form">
                             <div class="destination">
                                 <div class="grid-order grid-order-1" >

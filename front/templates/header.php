@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../assets/navbar.css">
+
 
     <title>Document</title>
 </head>
@@ -338,41 +340,40 @@
                     </div>
                     <div class="dropdown-menu" style="padding-left: 0;">
                         <h3>Our destinations</h3>
-                        <a href="../../airlines/front/explore/america-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Americas</a>
-                        <a href="../../airlines/front/explore/europe-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Europe</a>
-                        <a href="../../airlines/front/explore/asia-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Asia</a>
+                        <a href="../explore/america-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Americas</a>
+                        <a href="../explore/europe-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Europe</a>
+                        <a href="../explore/asia-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Asia</a>
                     </div>
                     <div class="dropdown-img" style="width: 150px;border-radius: 5px;">
-                        <img src="../../airlines/front/src/v-istanbul-city-culture.jpeg" width="100%" style="border-radius: 5px;">
+                        <img src="../src/v-istanbul-city-culture.jpeg" width="100%" style="border-radius: 5px;">
                     </div>
                     <div class="dropdown-menu" style="padding-left: 0;">
                         <h3>Trending</h3>
-                        <a href="../../airlines/front/explore/paris-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Paris</a>
-                        <a href="../../airlines/front/explore/bali-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Bali</a>
-                        <a href="../../airlines/front/explore/atlanta-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Atlanta</a>
+                        <a href="../explore/paris-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Paris</a>
+                        <a href="../explore/bali-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Bali</a>
+                        <a href="../explore/atlanta-explore.html"><i class="fas fa-map-marker-alt" style="width: 16px;text-align: center;"></i> Atlanta</a>
                     </div>
                     <div class="dropdown-img" style="width: 150px;border-radius: 5px;">
-                        <img src="../../airlines/front/src/v-dusseldorf.jpeg" width="100%" style="border-radius: 5px;">
+                        <img src="../src/v-dusseldorf.jpeg" width="100%" style="border-radius: 5px;">
                     </div>
                 </div>
             </li>
             <li class="has-dropdown">
                 <a href="#" class="dropbtn">Book</a>
                 <div class="dropdown-content" id="book-content">
-                  <div class="dropdown-menu">
-                      <h3>Plan your trip</h3>
-                      <a href="../../airlines/front/book/timetable.html"><i class="fas fa-plane" style="width: 16px;text-align: center;"></i> Flight schedule</a>
-                      <a href="../../airlines/front/book/hotels.html"><i class="fas fa-hotel" style="width: 16px;text-align: center;"></i> Hotels</a>
-                      <a href="../../airlines/front/book/car-hire.html"><i class="fas fa-car-side" style="width: 16px;text-align: center;"></i> Car rentals</a>
-                      <a href="#"><i class="fas fa-info" style="width: 16px;text-align: center;"></i> About us</a>
-                  </div>
-                  <div class="dropdown-img">
-                      <img src="../../airlines/front/src/h2-transfer-avios.jpeg" width="100%">
-                      <div class="img-text">
-                          <h3>Discover your next journey</h3>
-                          <a href="../../airlines/front/book/timetable.html">Book flights </a>
-                      </div>
-                  </div>
+                    <div class="dropdown-menu">
+                        <h3>Plan your trip</h3>
+                        <a href="../book/timetable.html"><i class="fas fa-plane" style="width: 16px;text-align: center;"></i> Flight schedule</a>
+                        <a href="#"><i class="fas fa-hotel" style="width: 16px;text-align: center;"></i> Hotels</a>
+                        <a href="#"><i class="fas fa-info" style="width: 16px;text-align: center;"></i> About us</a>
+                    </div>
+                    <div class="dropdown-img">
+                        <img src="../src/h2-transfer-avios.jpeg" width="100%">
+                        <div class="img-text">
+                            <h3>Discover your next journey</h3>
+                            <a href="../book/timetable.html">Book flights </a>
+                        </div>
+                    </div>
                 </div>
             </li>
             <li class="has-dropdown">
@@ -380,15 +381,15 @@
                 <div class="dropdown-content" id="experience-content">
                     <div class="dropdown-menu">
                         <h3>Before you fly</h3>
-                        <a href="../../airlines/front/experience/trvwkids.html"><i class="fas fa-child" style="width: 16px;text-align: center;"></i> Travelling with children</a>
-                        <a href="../../airlines/front/experience/trvwpets.html"><i class="fas fa-dog"></i> Travelling with pets</a>
-                        <a href="../../airlines/front/experience/services.html"><i class="fas fa-concierge-bell" style="width: 16px;text-align: center;"></i> Special services</a>
+                        <a href="../experience/trvwkids.html"><i class="fas fa-child" style="width: 16px;text-align: center;"></i> Travelling with children</a>
+                        <a href="../experience/trvwpets.html"><i class="fas fa-dog"></i> Travelling with pets</a>
+                        <a href="../experience/services.html"><i class="fas fa-concierge-bell" style="width: 16px;text-align: center;"></i> Special services</a>
                     </div>
                     <div class="dropdown-img">
-                        <img src="../../airlines/front/src/h2-maldives-beach-sunrise.jpeg" width="100%">
+                        <img src="../src/h2-maldives-beach-sunrise.jpeg" width="100%">
                         <div class="img-text">
                             <h3>Discover your next journey</h3>
-                            <a href="../../airlines/front/book/timetable.html">Book flights </a>
+                            <a href="../book/timetable.html">Book flights </a>
                         </div>
                     </div>
                 </div>
