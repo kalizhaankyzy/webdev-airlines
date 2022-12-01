@@ -40,7 +40,7 @@
             <h1>Flight details</h1>
                 <div class="order-container">
                     <div>
-                    <form action="passenger_details.php" method="post"></form>
+                    <form action="passenger_details.php" method="post">
                         <div class="order-form">
                             <div class="destination">
                                 <div class="grid-order grid-order-1" >
@@ -53,12 +53,12 @@
                                 </div>
                             </div>
                             <div class="class">
-                                <div name="class_economy" id="class_economy" class="customButton" onClick="document.forms['flightsClass'].submit()">
-                                    <p>Economy</p>
+                                <div name="class_economy" id="class_economy" class="customButton">
+                                    <input type="submit" name="class_economy" value="Economy">
                                     <p class="price"><?php echo $data_arr[$count_submit][7]; ?> tenge</p>
                                 </div>
-                                <div name="class_business" id="class_business" class="customButton" onClick="document.forms['flightsClass'].submit()">
-                                    <p>Business</p>
+                                <div name="class_business" id="class_business" class="customButton">
+                                    <input type="submit" name="class_economy" value="Business">
                                     <p class="price"><?php echo $data_arr[$count_submit][9]; ?> tenge</p>
                                 </div>
                                 

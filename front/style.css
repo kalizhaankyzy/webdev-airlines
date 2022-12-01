@@ -63,8 +63,6 @@ form{
     min-height: 120px;
     border-radius: 12px;
     width: 260px;
-    color: #6d7682;
-    font-size: 14px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -75,6 +73,12 @@ form{
     color: #1f212b;
     font-size: 18px;
 }
-.class div:hover{
+.class input{
+    font-size: 14px;
+    color: #6d7682;
+    background-color: inherit;
+    border: none;
+}
+.class input:hover{
     cursor: pointer;
 }

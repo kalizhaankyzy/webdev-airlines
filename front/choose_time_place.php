@@ -23,7 +23,7 @@ if($return_time==""){
     $one_way=true;
 }
 
-$mysql = mysqli_connect("localhost","admin","admin","airlines");
+$mysql = mysqli_connect("localhost","root","qwerty123","airlines");
 if (!$mysql) {
     die("Connection failed: " . mysqli_connect_error());
 }
