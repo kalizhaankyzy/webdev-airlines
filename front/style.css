@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:display=swap');
+
+html, body{
+    font-family: 'Barlow', sans-serif;
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+h1{
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #5c0931;
+}
+.content{
+    width: 80%;
+    margin: 7% auto;
+
+}
+.order-container{
+    background-color: white;
+    padding: 2% 3%;
+    border-radius: 24px;
+}
+form{
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+.order-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.order-form .destination{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;   
+}
+.time{
+    color: #1f212b;
+    font-family: 'Barlow', sans-serif;
+    font-size: 32px;
+}
+.caption{
+    color: #6d7682;
+    font-size: 16px;
+}
+.order-form .class{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.class div{
+    border: 1px solid #d7d7d7;
+    min-height: 120px;
+    border-radius: 12px;
+    width: 260px;
+    color: #6d7682;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+.price{
+    color: #1f212b;
+    font-size: 18px;
+}
+.class div:hover{
+    cursor: pointer;
+}

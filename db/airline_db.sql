@@ -18,6 +18,17 @@ CREATE TABLE customer(
     address VARCHAR(30) DEFAULT NULL
 );
 
+CREATE TABLE passengers(
+    pass_id INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    birth_date DATE NOT NULL,
+    nationality VARCHAR(30) NOT NULL,
+    gender VARCHAR(30) NOT NULL,
+    passport_num VARCHAR(30) NOT NULL,
+    passport_exp_date VARCHAR(30) NOT NULL
+);
+
 CREATE TABLE jet(
     jet_id VARCHAR(20) PRIMARY KEY NOT NULL,
     type VARCHAR(30) NOT NULL,
@@ -124,12 +135,14 @@ UPDATE ticket SET booking_status = 'canceled' WHERE pnr = '$pnr';
 
 
 -- More expensive price during the day, cheaper at night. 
-CREATE EVENT IF NOT EXISTS price_night
-ON SCHEDULE 
-EVERY '1 22' DAY_HOUR
-COMMENT 'The prices will be cheaper to 10% at 22:00 daily!'
-DO
-    UPDATE flight_details SET price_economy = price_economy * 0.9, price_business = price_business * 0.9;
+SHOW processlist;
+
+
+-- SET GLOBAL event_scheduler = ON;
+-- CREATE EVENT IF NOT EXISTS price_night
+-- ON SCHEDULE AT CURRENT_TIMESTAMP
+-- DO
+--     UPDATE flight_details SET price_economy = price_economy * 0.9, price_business = price_business * 0.9;
 
 CREATE EVENT IF NOT EXISTS price_day
 ON SCHEDULE 
@@ -164,3 +177,6 @@ VALUES
 ('AB101', 'astana', 'india', '2022-12-10', '2022-12-11', '23:40:00', '04:40:00', '10004', 200, 95, 255000, 305000 ),
 ('AB102', 'almaty', 'india', '2022-12-11', '2022-12-11', '01:00:00', '05:00:00', '10009', 200, 95, 215000, 265000 ),
 ('AB103', 'almaty', 'atlanta', '2022-12-11', '2022-12-11', '06:00:00', '12:00:00', '10008', 195, 96, 325000, 375500 );
+
+ALTER TABLE payments ADD pass_id INT(8) NOT NULL;
+ALTER TABLE payments ADD FOREIGN KEY (pass_id) REFERENCES passengers(pass_id);

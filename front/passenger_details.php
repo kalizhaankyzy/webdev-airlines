@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -363,73 +364,48 @@
     </div>
     <div class="content" id="booking">
         <div class="book-cont">
-            <ul class="nav nav-tabs wizardpane nav-fill" id="myTab" role="tablist">
-                <li class="nav-item booking">
-                    <a class="nav-link active" id="booking-tab" data-toggle="tab" href="#book" role="tab"
-                        aria-controls="book" aria-selected="true"><i class='fas fa-plane'></i> Book</a>
-                </li>
-                <li class="nav-item managebooking">
-                    <a class="nav-link" id="managebooking-tab" data-toggle="tab" href="#managebooking" role="tab"
-                        aria-controls="managebooking" aria-selected="false"><i class='far fa-calendar-alt'></i> My Trips
-                    </a>
-                </li>
-                <li class="nav-item check-in">
-                    <a class="nav-link" id="checkin-tab" data-toggle="tab" href="#checkin" role="tab"
-                        aria-controls="checkin" aria-selected="false"><i class='far fa-check-circle'></i> Check-in</a>
-                </li>
-                <li class="nav-item flightstatus d-none d-md-block d-lg-block d-xl-block">
-                    <a class="nav-link" id="flightstatus-tab" data-toggle="tab" href="#flightstatus" role="tab"
-                        aria-controls="flightstatus" aria-selected="false"><i class='	fas fa-map-marker-alt'></i> Flight status</a>
-                </li>
-            </ul>
-            <div class="order-container">
-                <div>
-                    <form action="choose_time_place.php" name="flightsOrder" method="post" autocomplete="off">
-                        <div class="order-select">
-                            <label><input type="radio" name="flight-options" onclick="hide(0)" id="flight-option-1" value="round-trip"
-                                    checked>Round Trip</label>
-                            <label><input type="radio" name="flight-options" onclick="hide(1)" id="flight-option-2" value="one-way">One
-                                Way</label>
-                        </div>
-        
-                        <div class="order-form">
-                            <div class="grid-order grid-order-1" >
-                                <p>From</p>
-                                
-                                <input type="text" id="input" autocomplete="off" name="order-from" />
-                                
-                                <ul class="list" style="display: block;"></ul>
-                            </div>
-                            <div class="grid-order grid-order-2"  >
-                                <p>To</p>
-                                <input type="text" id="input-1" autocomplete="off" name="order-to" />
-                                <ul class="list1" style="display: block;"></ul>
-                            </div>
-                            <script src="./scripts/order-city.js"></script>
+            
+                <h1>Passanger Details</h1>
+                <form action="inserting_data.php" method="post" >
+                    <div>
+                    <label> Name </label> <input type="text" name="passname" id="passname" required>
+                    </div>
+                    <div>
+                    <label> Last Name </label> <input type="text" name="passlastname" id="passlastname" required>
+                    </div>
+                    <div>
+                    <label> Birth Date </label> <input type="date" name="passdate" id="passdate" required>
+                    </div>
+                    <div>
+                    <label> Nationality </label> <input type="text" name="passnation" id="passnation" required>
+                    <ul class="list" style="display: block;"></ul>
+                    </div>
+
+                    <label> Gender </label>
+                    <div>
+                    <label> <input type="radio" name="passgender" id="passmale" value="Male" required> Male </label>
+                    <label> <input type="radio" name="passgender" id="passfemale"  value="Female" required> Female </label>
+                        
+                        
+                    </div>
+                    <label> Passport </label>
+                    <div>
+                        <input type="text" name="passport" id="passport" required>
+                    </div>
+                    <label>  Passport Date </label>
+                    <div>
+                        <input type="date" name="passportdate" id="passportdate" >
+                    </div>
+                    <div>
+                        <input type="submit" value="Continue" name="passSubmit">
+                    </div>
+                </form>
+                <script src="scripts/order-nation.js"></script>
                 
-                            <div class="grid-order grid-order-3">
-                                <p>Depart</p>
-                                <input value="" type="date" name="time-depart" />
-                            </div>
-                            <div class="grid-order grid-order-4" id="one-way">
-                                <p>Return</p>
-                                <input value="" type="date" name="time-return" />
-                            </div>
-                            <div class="grid-order grid-order-5">
-                            </div>
-                            <div class="grid-order grid-order-6">
-                                <input type="submit" name="submit" value="Find Flights">
-                                <!-- <div>
-                                            <img src="src/flight_icon.png" alt="">
-                                        </div> -->
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            
         </div>
     </div>
-    
+    <script src="./scripts/order-city.js"></script>
     <div class="content" id="news">
         <h1>Start planning your next trip</h1>
         <p>Thinking of travelling somewhere soon? Here are some options to help you get started.</p>

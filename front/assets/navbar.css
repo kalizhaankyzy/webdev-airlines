@@ -18,6 +18,7 @@ nav a{
     letter-spacing: -0.25px;
     font-weight: 300;
     color: #5c0931;
+    text-decoration: none;
 }
 
 .dropdown-content {
