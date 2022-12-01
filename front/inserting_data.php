@@ -34,7 +34,13 @@ session_start();
     <link rel="stylesheet" href="./assets/choose_time_place.css">
     <link rel="stylesheet" href="./assets/payment.css">
     <script src="https://kit.fontawesome.com/3a6c74b0d8.js" crossorigin="anonymous"></script>
+    <script>
+			setTimeout(function(){
+			window.location.href = 'main.html';
+			}, 5 * 1000);
+		</script>
     <title>Qatar Airways</title>
+
 </head>
 
 <body>
