@@ -33,12 +33,19 @@
 <body>
     <?php include('./templates/header.php'); ?>
     <div class="content" id="booking">
-        <div class="book-cont">           
-            <h1>Payment</h1>
+        <div class="container">
+
             <form action="payment_detail.php" method="get">
-			<dl>
-				<dt>Section</dt>
-				<dd>
+            <div class="raw">
+
+                      
+            <h1>You ordered ticket.<br>Please, select payment</h1>
+                <div >
+                    <h4>Credit Card</h4>
+					<input type="text" name="cardnumber" /><br />
+                </div>
+                <div class="col-half">
+                <h4>Section</h4>
 					<select name="section">
 						<option value="">(Select a section)</option>
 						<option>MA</option>
@@ -50,20 +57,20 @@
 						<option>MG</option>
 						<option>MH</option>
 					</select>
-				</dd>
+                </div>
 
-				<dt>Credit Card</dt>
-				<dd>
-					<input type="text" name="cardnumber" /><br />
-					<label><input type="radio" name="cardtype" value="visa" />Visa</label>
-					<label><input type="radio" name="cardtype" value="mastercard" />MasterCard</label>
-				</dd>
-			</dl>
+                <div class="col-half">
+                <h4>Card Type</h4>
+					<input type="radio" name="cardtype" id="visa" value="visa" required/><label for="visa">Visa</label>
+					<input type="radio" name="cardtype" id="mastercard" value="mastercard" required/><label for="mastercard">MCard</label>
 
+                </div>
+                    
 			<div>
 				<input type="submit" value="PAY" />
 			</div>
 		</form>
+        </div> 
         </div>
     </div>
     <?php include('./templates/footer.php'); ?>  
