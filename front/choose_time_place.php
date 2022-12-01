@@ -13,11 +13,14 @@ $data_arr=array(
     9=>array(),
     10=>array()
 );
-$order_from=filter_var(trim(strtolower($_POST['order-from'])));
-$order_to=filter_var(trim(strtolower($_POST['order-to'])));
+$order_from=filter_var(trim(strtolower($_SESSION['order-from'])));
+$order_to=filter_var(trim(strtolower($_SESSION['order-to'])));
 
-$depart_time= date($_POST['time-depart']);
-$return_time=date($_POST['time-return']);
+$depart_time= date($_SESSION['time-depart']);
+$flight_options = filter_var(trim(strtolower($_SESSION['flight-options'])));
+if($flight_options == 'round-trip'){
+    $return_time=date($_SESSION['time-return']);
+}
 $one_way=false;
 if($return_time==""){
     $one_way=true;
@@ -63,7 +66,7 @@ else{
             <h1>Flight Table</h1>
             <!-- TABLE CONSTRUCTION -->
             <div class="order-container">
-            <form action="book_flights.php" method="post" name="book_flights_form">
+            <form action="book_flights.php" method="post" name="book_flights_form" style="text-align: center;">
                 <table class="responsive-table">
                     <thead>
                         <tr>
@@ -107,6 +110,13 @@ else{
                     <?php
                         }}
                         $_SESSION['book_flights']=$data_arr;
+                        if($rows == 0) {
+                    ?>
+                        <p style="text-align: center;">Unfortunately, there are no flights on the day you have chosen.</p>
+                        <a style="color: #5c0931; text-decoration: underline;" href=".././front/book/timetable.html">Book flights</a>
+                        
+                    <?php
+                        }
                     ?>
                 </table>
             </form>

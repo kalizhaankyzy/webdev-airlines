@@ -13,7 +13,7 @@
 <body>
     <div class="header">
       <nav>
-        <a href="../../airlines/front/main.html" style="width: 10%;">
+        <a href="http://localhost/webdev-airlines/front/main.php" style="width: 10%;">
           <svg class="hidden-xs desktop-qalogo" width="155" height="50" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 104.9 34" enable-background="new 0 0 104.9 34" xml:space="preserve">
             <g>
               <path fill="#525A68" d="M21.5,27.4c-0.2,0-0.4,0-0.6,0c-0.2,0-0.5,0-0.7,0l0.7-1.6L21.5,27.4z M22.3,29.2c0.1,0,0.3,0,0.5,0
