@@ -378,6 +378,9 @@
                         </div>
                     </div>
                 </li>
+                <li class="has-dropdown">
+                    <a href="http://localhost/webdev-airlines/front/login/index.html" class="dropbtn">Login | Sign up</a>
+                </li>
             </ul>
             
         </nav>
