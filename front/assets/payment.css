@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:display=swap');
 
-
+html, body {
+  font-family: 'Barlow', sans-serif;
+  background-color: #f7f7f7;
+  overflow-x: hidden;
+}
 h4 {
   color: #f0a500;
 }
@@ -85,7 +90,6 @@ input[type="checkbox"] + label:after {
   font-size: 0.8em;
   color: #fff;
   opacity: 0;
-  font-family: FontAwesome;
   content: "\f00c";
 }
 input:checked + label:after {
