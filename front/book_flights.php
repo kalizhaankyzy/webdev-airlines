@@ -61,6 +61,7 @@
                                     <p>Business</p>
                                     <p class="price"><?php echo $data_arr[$count_submit][9]; ?> tenge</p>
                                 </div>
+                                
                             </div>
                         </div>
                     </form>
@@ -73,4 +74,3 @@
 </body>
 
 </html>
-<?php session_destroy(); ?>

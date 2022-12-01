@@ -1,4 +1,5 @@
 <?php
+session_start();
    $passname=filter_var(trim(strtolower($_POST['passname'])));
    $passlastname=filter_var(trim(strtolower($_POST['passlastname'])));
    $passdate=filter_var(trim(strtolower($_POST['passdate'])));
@@ -7,16 +8,17 @@
    $passportdate=filter_var(trim(strtolower($_POST['passportdate'])));
    $passgender=filter_var(trim(strtolower($_POST['passgender'])));
    $mysql=new mysqli("localhost","admin","admin","airlines");
-   $data_arr=$_SESSION['for_ticket'];
+   $data_arr=$_SESSION['book_flights'];
 
    $count_submit=$_SESSION["count_submit"];
-   $jet_id=$data_arr[$count_submit][9];
-   $flight_no=$data_arr[$count_submit][9];
+   $jet_id=$data_arr[$count_submit][10];
+   $flight_no=$data_arr[$count_submit][0];
+   $passnum=1;
    $mysql->query("INSERT INTO passengers (first_name,last_name,birth_date,nationality,gender,passport_num,passport_exp_date) VALUES('$passname','$passlastname',
     '$passdate','$passnation','$passgender','$passport','$passportdate')");
     $cur_date=date("Y/m/d");
-    $mysql->query("INSERT INTO ticket (rsrv_date,class,booking_status,passenger_num,cust_id,flight_no,jet_id) 
-    VALUES ('$cur_date','business','waiting for payment','1','2','$flight_no','$jet_id)");
+    $mysql->query("INSERT INTO ticket (rsrv_date,class,booking_status,passengers_num,flight_no,jet_id) 
+    VALUES ('$cur_date','business','waiting for payment','1','$flight_no','$jet_id')");
     $mysql->close();
 
 ?>
