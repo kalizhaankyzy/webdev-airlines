@@ -7,11 +7,16 @@
    $passportdate=filter_var(trim(strtolower($_POST['passportdate'])));
    $passgender=filter_var(trim(strtolower($_POST['passgender'])));
    $mysql=new mysqli("localhost","admin","admin","airlines");
+   $data_arr=$_SESSION['for_ticket'];
 
-    $mysql->query("INSERT INTO passengers (first_name,last_name,birth_date,nationality,gender,passport_num,passport_exp_date) VALUES('$passname','$passlastname',
+   $count_submit=$_SESSION["count_submit"];
+   $jet_id=$data_arr[$count_submit][9];
+   $flight_no=$data_arr[$count_submit][9];
+   $mysql->query("INSERT INTO passengers (first_name,last_name,birth_date,nationality,gender,passport_num,passport_exp_date) VALUES('$passname','$passlastname',
     '$passdate','$passnation','$passgender','$passport','$passportdate')");
-    
-    
+    $cur_date=date("Y/m/d");
+    $mysql->query("INSERT INTO ticket (rsrv_date,class,booking_status,passenger_num,cust_id,flight_no,jet_id) 
+    VALUES ('$cur_date','business','waiting for payment','1','2','$flight_no','$jet_id)");
     $mysql->close();
 
 ?>

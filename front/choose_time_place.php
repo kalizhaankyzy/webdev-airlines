@@ -10,23 +10,36 @@ $data_arr=array(
     6=>array(),
     7=>array(),
     8=>array(),
-    9=>array()
+    9=>array(),
+    10=>array()
 );
 $order_from=filter_var(trim(strtolower($_POST['order-from'])));
 $order_to=filter_var(trim(strtolower($_POST['order-to'])));
 
 $depart_time= date($_POST['time-depart']);
 $return_time=date($_POST['time-return']);
+$one_way=false;
+if($return_time==""){
+    $one_way=true;
+}
 
 $mysql = mysqli_connect("localhost","admin","admin","airlines");
 if (!$mysql) {
     die("Connection failed: " . mysqli_connect_error());
 }
+if($one_way){
+    $query = "SELECT * FROM flight_details JOIN jet ON flight_details.jet_id=jet.jet_id 
+    WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'";
+    $result = mysqli_query($mysql, $query) or die(mysql_error());
+    $rows = mysqli_num_rows($result);
+}
+else{
+    $query = "SELECT * FROM flight_details JOIN jet ON flight_details.jet_id=jet.jet_id 
+    WHERE (flight_details.from_city='$order_to' AND flight_details.to_city='$order_from' AND flight_details.departure_date='$return_time') OR (flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time')";
+    $result = mysqli_query($mysql, $query) or die(mysql_error());
+    $rows = mysqli_num_rows($result);
+}
 
-$query = "SELECT * FROM flight_details JOIN jet ON flight_details.jet_id=jet.jet_id 
-WHERE flight_details.from_city='$order_from' AND flight_details.to_city='$order_to' AND flight_details.departure_date='$depart_time'";
-$result = mysqli_query($mysql, $query) or die(mysql_error());
-$rows = mysqli_num_rows($result);
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +67,7 @@ $rows = mysqli_num_rows($result);
                 <table class="responsive-table">
                     <thead>
                         <tr>
+                            <th scope="col">From->To</th>
                             <th scope="col">Flight No</th>
                             <th scope="col">Departure Date</th>
                             <th scope="col">Arrival Date</th>
@@ -72,6 +86,7 @@ $rows = mysqli_num_rows($result);
                     ?>
                     <tbody>
                         <tr>
+                            <th scope="row"><?php echo $row['from_city']." - ".$row['to_city'];?></th>
                             <th scope="row"><?php echo $row['flight_no'];?></th>
                             <td data-title="Departure Date"><?php echo($row['departure_date'].' '. $row['departure_time']);?></td>
                             <td data-title="Arrival Date"><?php echo($row['arrival_date'].' '. $row['arrival_time']);?></td>
@@ -80,7 +95,7 @@ $rows = mysqli_num_rows($result);
                             <td data-title="Business"><?php echo ($row['price_business']). ' tenge';?></td>
                             <td>
                             <?php
-                            array_push($data_arr[$count],$row['flight_no'],$row['from_city'],$row['to_city'],$row['departure_time'],$row['arrival_time'], $row['type'],$row['seats_economy'],$row['price_economy'],$row['seats_business'],$row['price_business']);
+                            array_push($data_arr[$count],$row['flight_no'],$row['from_city'],$row['to_city'],$row['departure_time'],$row['arrival_time'], $row['type'],$row['seats_economy'],$row['price_economy'],$row['seats_business'],$row['price_business'],$row['jet_id']);
                             
                             echo " <input type='submit' name='submit$count' value='Book' style='background-color: #8E2157; color: white;height: 25px;width: 80px;border:none; cursor: pointer;'> ";
                             $count++;

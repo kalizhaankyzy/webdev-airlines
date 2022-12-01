@@ -2,6 +2,7 @@
     session_start();
     $count_submit=0;
     $data_arr=$_SESSION['book_flights'];
+    $_SESSION['for_ticket']=$_SESSION['book_flights'];
     if ($_SERVER['REQUEST_METHOD'] === "POST") {
         while(true){
             $submited_name="submit$count_submit";
@@ -14,6 +15,8 @@
       }
     else
     $submited_name="-1";
+
+    $_SESSION["count_submit"]=$count_submit;
 
 ?>
 
