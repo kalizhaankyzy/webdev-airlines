@@ -37,7 +37,7 @@
             <h1>Flight details</h1>
                 <div class="order-container">
                     <div>
-                   
+                    <form action="passenger_details.php" method="post"></form>
                         <div class="order-form">
                             <div class="destination">
                                 <div class="grid-order grid-order-1" >

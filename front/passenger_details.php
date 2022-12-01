@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/ordering.css">
     <link rel="stylesheet" href="./assets/navbar.css">
     <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/payment.css">
     <script src="https://kit.fontawesome.com/3a6c74b0d8.js" crossorigin="anonymous"></script>
     <script src="./scripts/one-way.js"></script>
     
@@ -366,33 +367,46 @@
         <div class="book-cont">
             
                 <h1>Passanger Details</h1>
-                <form action="inserting_data.php" method="post" >
+                <form action="inserting_data.php" method="post" autocomplete="none" >
+                    <div class="row">
+                    <h4> Name </h4> <input type="text" name="passname" id="passname" required>
+                   
                     <div>
-                    <label> Name </label> <input type="text" name="passname" id="passname" required>
+                    <h4>Last Name </h4> <input type="text" name="passlastname" id="passlastname" required>
                     </div>
-                    <div>
-                    <label> Last Name </label> <input type="text" name="passlastname" id="passlastname" required>
+                    
                     </div>
-                    <div>
-                    <label> Birth Date </label> <input type="date" name="passdate" id="passdate" required>
+                    <div class="input-group input-group-icon">
+
+                        
+                        <div class="row">
+                        <div class="col-half">
+                            <h4> Birth Date </h4></label> <input type="date" name="passdate" id="passdate" required>
+                            
+                            <div class="input-group input-group-icon">
+                            <h4>Nationality</h4><input type="text" name="passnation" id="passnation" required>
+                            <ul class="list" style="display: block;"></ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-half">
+                            <div class="input-group">
+                            <h4>Gender </h4> 
+                            <input type="radio" name="passgender" id="passmale" value="Male" required> <label for="passmale">  Male </label>
+                            <input type="radio" name="passgender" id="passfemale"  value="Female" required><label for="passfemale">  Female </label>
+                            </div>
+                        
+                        
+                        
                     </div>
-                    <div>
-                    <label> Nationality </label> <input type="text" name="passnation" id="passnation" required>
-                    <ul class="list" style="display: block;"></ul>
+                    </div>
                     </div>
 
-                    <label> Gender </label>
-                    <div>
-                    <label> <input type="radio" name="passgender" id="passmale" value="Male" required> Male </label>
-                    <label> <input type="radio" name="passgender" id="passfemale"  value="Female" required> Female </label>
-                        
-                        
-                    </div>
-                    <label> Passport </label>
+                    <h4>Passport</h4>
                     <div>
                         <input type="text" name="passport" id="passport" required>
                     </div>
-                    <label>  Passport Date </label>
+                    <h4>Passport Date</h4>
                     <div>
                         <input type="date" name="passportdate" id="passportdate" >
                     </div>
