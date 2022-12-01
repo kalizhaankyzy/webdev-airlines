@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../assets/navbar.css">
-    <link rel="stylesheet" href="../assets/style.css">
 
     <title>Document</title>
 </head>
@@ -361,19 +359,20 @@
             <li class="has-dropdown">
                 <a href="#" class="dropbtn">Book</a>
                 <div class="dropdown-content" id="book-content">
-                    <div class="dropdown-menu">
-                        <h3>Plan your trip</h3>
-                        <a href="../book/timetable.html"><i class="fas fa-plane" style="width: 16px;text-align: center;"></i> Flight schedule</a>
-                        <a href="#"><i class="fas fa-hotel" style="width: 16px;text-align: center;"></i> Hotels</a>
-                        <a href="#"><i class="fas fa-info" style="width: 16px;text-align: center;"></i> About us</a>
-                    </div>
-                    <div class="dropdown-img">
-                        <img src="../src/h2-transfer-avios.jpeg" width="100%">
-                        <div class="img-text">
-                            <h3>Discover your next journey</h3>
-                            <a href="../book/timetable.html">Book flights </a>
-                        </div>
-                    </div>
+                  <div class="dropdown-menu">
+                      <h3>Plan your trip</h3>
+                      <a href="http://localhost/webdev-airlines/front/book/timetable.php"><i class="fas fa-plane" style="width: 16px;text-align: center;"></i> Flight schedule</a>
+                      <a href="http://localhost/webdev-airlines/front/book/hotels.html"><i class="fas fa-hotel" style="width: 16px;text-align: center;"></i> Hotels</a>
+                      <a href="http://localhost/webdev-airlines/front/book/car-hire.html"><i class="fas fa-car-side" style="width: 16px;text-align: center;"></i> Car rentals</a>
+                      <a href="#"><i class="fas fa-info" style="width: 16px;text-align: center;"></i> About us</a>
+                  </div>
+                  <div class="dropdown-img">
+                      <img src="../src/h2-transfer-avios.jpeg" width="100%">
+                      <div class="img-text">
+                          <h3>Discover your next journey</h3>
+                          <a href="http://localhost/webdev-airlines/front/book/timetable.php">Book flights </a>
+                      </div>
+                  </div>
                 </div>
             </li>
             <li class="has-dropdown">
@@ -389,7 +388,7 @@
                         <img src="../src/h2-maldives-beach-sunrise.jpeg" width="100%">
                         <div class="img-text">
                             <h3>Discover your next journey</h3>
-                            <a href="../book/timetable.html">Book flights </a>
+                            <a href="http://localhost/webdev-airlines/front/book/timetable.php">Book flights </a>
                         </div>
                     </div>
                 </div>
@@ -397,6 +396,14 @@
         </ul>
         
       </nav>
+      <div class="wave">
+            <svg _ngcontent-c8="" xml:space="preserve" data-name="Layer 1" height="109.86" viewBox="0 0 2000 109" width="2000" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#f7f7f7" opacity="0.2" _ngcontent-c8="" class="cls-1" d="M2000,19.58c-346-.6-524.6-4.7-878.8,4.4-286.6,7.4-442.3,54-608.1,51.2C307.8,71.68,203,2.38,0,25.48v100.4l2000-.5V19.58Z" transform="translate(0 -18.14)"></path>
+                <path fill="#f7f7f7" opacity="0.2" _ngcontent-c8="" class="cls-1" d="M0.2,44c251.41-30.8,441.4,38.6,500.13,52.3,54.72,12.8,122.56,12,186.78-5.3,154.27-41.6,315.64-70.9,475.41-67.5s324.75,22.4,484.52,19.7c133.06-2.3,302.94,1.7,353,3.7v80H0Z" transform="translate(0 -18.14)"></path>
+                <path fill="#f7f7f7" opacity="0.4" _ngcontent-c8="" class="cls-2" d="M2000,39.2C1860.23,26.5,1780.15,28.4,1639.89,28c-285.43-.8-487.38,18-736,51.1-256.54,34.3-356.81,35.3-704.22-27.5C140.76,41,60,43.6,0,50.3V128H1999.5Z" transform="translate(0 -18.14)"></path>
+                <path fill="#f7f7f7" _ngcontent-c8="" d="M1636.64,48.1c-194,11.9-367.27,24.9-569.57,50-110.31,13.7-221.42,21.5-332.63,19.6C547.25,114.4,389.59,88,173,47.9,50.65,25.3,0,43.9,0,43.9V128H2000V44C1999.9,44,1833.23,36.1,1636.64,48.1Z" transform="translate(0 -18.14)"></path>
+            </svg>
+        </div>
     </div>
 </body>
 </html>

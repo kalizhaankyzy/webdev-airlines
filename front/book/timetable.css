@@ -13,7 +13,7 @@ li{
     list-style: none;
 }
 .header{
-    background: url('./src/intro-image-01.jpeg') center/cover;
+    background: url('./src/intro-image-01.jpeg') center/cover!important;
     height: 300px;
     width: 100%;
     position: absolute;
