@@ -113,7 +113,7 @@ else{
                         if($rows == 0) {
                     ?>
                         <p style="text-align: center;">Unfortunately, there are no flights on the day you have chosen.</p>
-                        <a style="color: #5c0931; text-decoration: underline;" href=".././front/book/timetable.html">Book flights</a>
+                        <a style="color: #5c0931; text-decoration: underline;" href="http://localhost/webdev-airlines/front/book/timetable.php">Book flights</a>
                         
                     <?php
                         }
