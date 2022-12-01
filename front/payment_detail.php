@@ -13,13 +13,14 @@
         <link rel="stylesheet" href="./assets/payment.css">
 		<script>
 			setTimeout(function(){
-			window.location.href = 'main.html';
+			window.location.href = 'main.php';
 			}, 30 * 1000);
 		</script>
 	</head>
 
 
 		<?php
+		require('connection.php');
 
 		if(isset($_GET["section"])&&isset($_GET["cardnumber"])&&isset($_GET["cardtype"]))
 		{
@@ -64,10 +65,6 @@
 				$valid=false;
 			}
 			if($valid){
-				$mysql = mysqli_connect("localhost","admin","admin","airlines");
-				if (!$mysql) {
-					die("Connection failed: " . mysqli_connect_error());
-				}
 				$mysql->query("UPDATE ticket SET booking_status='payed' WHERE pnr='102'");
 				
 				$mysql->query("INSERT INTO payments (date,price,pnr,jet_id,pass_id) 
@@ -82,7 +79,7 @@
 		}
 		?>
 	<body>
-		<h1><a href=main.html>Back</a></h1>
+		<h1><a href=main.php>Back</a></h1>
 		<?php
 		if($valid==false){
 			echo $dd;

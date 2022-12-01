@@ -1,4 +1,5 @@
 <?php
+require('connection.php');
 session_start();
    $passname=filter_var(trim(strtolower($_POST['passname'])));
    $passlastname=filter_var(trim(strtolower($_POST['passlastname'])));
@@ -7,7 +8,7 @@ session_start();
    $passnation=filter_var(trim(strtolower($_POST['passnation'])));
    $passportdate=filter_var(trim(strtolower($_POST['passportdate'])));
    $passgender=filter_var(trim(strtolower($_POST['passgender'])));
-   $mysql=new mysqli("localhost","admin","admin","airlines");
+
    $data_arr=$_SESSION['book_flights'];
 
    $count_submit=$_SESSION["count_submit"];
@@ -36,7 +37,7 @@ session_start();
     <script src="https://kit.fontawesome.com/3a6c74b0d8.js" crossorigin="anonymous"></script>
     <script>
 			setTimeout(function(){
-			window.location.href = 'main.html';
+			window.location.href = 'main.php';
 			}, 5 * 1000);
 		</script>
     <title>Qatar Airways</title>
