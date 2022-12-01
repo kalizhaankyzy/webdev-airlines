@@ -137,12 +137,13 @@ UPDATE ticket SET booking_status = 'canceled' WHERE pnr = '$pnr';
 -- More expensive price during the day, cheaper at night. 
 SHOW processlist;
 
+SET GLOBAL event_scheduler = ON;
 
--- SET GLOBAL event_scheduler = ON;
--- CREATE EVENT IF NOT EXISTS price_night
--- ON SCHEDULE AT CURRENT_TIMESTAMP
--- DO
---     UPDATE flight_details SET price_economy = price_economy * 0.9, price_business = price_business * 0.9;
+CREATE EVENT IF NOT EXISTS price_night
+ON SCHEDULE 
+EVERY '1 22' DAY_HOUR
+DO
+    UPDATE flight_details SET price_economy = price_economy * 0.9, price_business = price_business * 0.9;
 
 CREATE EVENT IF NOT EXISTS price_day
 ON SCHEDULE 
