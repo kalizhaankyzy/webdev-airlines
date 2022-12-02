@@ -9,17 +9,18 @@
 	$pass_id=$_SESSION['pass_id'];
 	$type_place=$_SESSION['type_place'];
 	$ticket_id=$_SESSION['ticket_id'];
+	echo $ticket_id;
 	$ticket_price=$data_arr[$count_submit][7];
 ?>
 <html >
 	<head>
 		
         <link rel="stylesheet" href="./assets/payment.css">
-		<!-- <script>
+		<script>
 			setTimeout(function(){
 			window.location.href = 'main.php';
-			}, 500 * 1000); -->
-		<!-- </script>
+			}, 300 * 1000); -->
+		</script>
 	</head>
 
 

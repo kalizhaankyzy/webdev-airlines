@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $database = "airlines";
-$username = "admin";
-$password = "admin";
+$username = "root";
+$password = "qwerty123";
 // Создаем соединение
 $mysql = mysqli_connect($servername, $username, $password, $database);
 $mysql_passid = mysqli_connect($servername, $username, $password, $database);

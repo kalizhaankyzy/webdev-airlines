@@ -181,3 +181,12 @@ VALUES
 
 ALTER TABLE payments ADD pass_id INT(8) NOT NULL;
 ALTER TABLE payments ADD FOREIGN KEY (pass_id) REFERENCES passengers(pass_id);
+
+
+
+DELIMITER $$
+CREATE TRIGGER `update_ticket_after_payment` AFTER INSERT ON `payments` FOR EACH ROW UPDATE ticket
+     SET booking_status='CONFIRMED'
+   WHERE pnr = NEW.pnr
+$$
+DELIMITER ;

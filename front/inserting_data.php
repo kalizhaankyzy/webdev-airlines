@@ -8,7 +8,7 @@ session_start();
    $passnation=filter_var(trim(strtolower($_POST['passnation'])));
    $passportdate=filter_var(trim(strtolower($_POST['passportdate'])));
    $passgender=filter_var(trim(strtolower($_POST['passgender'])));
-   $type_place=$_SESSION['type_place'];
+
    $data_arr=$_SESSION['book_flights'];
 
    $count_submit=$_SESSION["count_submit"];
@@ -19,24 +19,8 @@ session_start();
     '$passdate','$passnation','$passgender','$passport','$passportdate')");
     $cur_date=date("Y/m/d");
     $mysql->query("INSERT INTO ticket (rsrv_date,class,booking_status,passengers_num,flight_no,jet_id) 
-    VALUES ('$cur_date','$type_place','waiting for payment','1','$flight_no','$jet_id')");
-
-    $mysql_ticketid->query("SELECT pnr FROM ticket ORDER BY pnr DESC LIMIT 1");
-    $query = "SELECT pass_id FROM passengers ORDER BY pass_id DESC LIMIT 1";
-    $query1 = "SELECT pnr FROM ticket ORDER BY pnr DESC LIMIT 1";
-    $result1 = mysqli_query($mysql_passid, $query) or die(mysql_error());
-    $result2 = mysqli_query($mysql_ticketid, $query) or die(mysql_error());
-    
-    while($row = $result1->fetch_assoc()){
-        $_SESSION['pass_id']=$row['pass_id'];
-    }
-    while($row = $result2->fetch_assoc()){
-        $_SESSION['ticket_id']=$row['pnr'];
-    }
-
+    VALUES ('$cur_date','business','waiting for payment','1','$flight_no','$jet_id')");
     $mysql->close();
-    $mysql_passid->close();
-
 
 ?>
 <!DOCTYPE html>
@@ -76,6 +60,7 @@ session_start();
                 </div>
                 <div class="col-half">
                 <h4>Section</h4>
+                
 					<select name="section">
 						<option value="">(Select a section)</option>
 						<option>MA</option>

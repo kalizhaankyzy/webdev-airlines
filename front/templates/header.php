@@ -397,7 +397,7 @@
                         <a href="main.php?logout=true" class="dropbtn"'>Logout</a>
                     <?php   } 
                     if (isset($_GET['logout'])) {
-                        session_destroy();
+                      $_SESSION['login']==0;
                       }
                       ?>
                     <?php if(empty($_SESSION['login']) || $_SESSION['login']==0){ ?>
