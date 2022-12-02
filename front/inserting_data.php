@@ -38,7 +38,7 @@ session_start();
     <script>
 			setTimeout(function(){
 			window.location.href = 'main.php';
-			}, 5 * 1000);
+			}, 500 * 1000);
 		</script>
     <title>Qatar Airways</title>
 

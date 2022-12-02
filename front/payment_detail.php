@@ -14,8 +14,8 @@
 		<script>
 			setTimeout(function(){
 			window.location.href = 'main.php';
-			}, 30 * 1000);
-		</script>
+			}, 500 * 1000); -->
+		<!-- </script>
 	</head>
 
 
@@ -65,7 +65,7 @@
 				$valid=false;
 			}
 			if($valid){
-				$mysql->query("UPDATE ticket SET booking_status='payed' WHERE pnr='102'");
+				$mysql->query("UPDATE ticket SET booking_status='payed' WHERE pnr='10	2'");
 				
 				$mysql->query("INSERT INTO payments (date,price,pnr,jet_id,pass_id) 
 				VALUES ('$cur_date','25000','102','$jet_id','1')");
