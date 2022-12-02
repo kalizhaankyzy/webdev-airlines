@@ -18,8 +18,8 @@
 		<!-- <script>
 			setTimeout(function(){
 			window.location.href = 'main.php';
-			}, 300 * 1000);
-		</script> -->
+			}, 500 * 1000); -->
+		<!-- </script>
 	</head>
 
 
