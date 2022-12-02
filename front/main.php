@@ -459,7 +459,7 @@
 
                             <div class="grid-order grid-order-3">
                                 <p>Depart</p>
-                                <input value="<?php echo htmlspecialchars($values['time-depart']);?>" type="date" name="time-depart" />
+                                <input value="" type="date" name="time-depart" />
                                 <?php if (in_array('time-depart', $errors)): ?>
                                     <span class="error">Missing</span>
                                 <?php endif; ?>
@@ -469,7 +469,7 @@
                             </div>
                             <div class="grid-order grid-order-4" id="one-way">
                                 <p>Return</p>
-                                <input value="<?php echo htmlspecialchars($values['time-return']);?>" type="date" name="time-return"/>
+                                <input value="" type="date" name="time-return"/>
                                 <?php if (in_array('time-return', $errors)): ?>
                                     <span class="error">Missing</span>
                                 <?php endif; ?>

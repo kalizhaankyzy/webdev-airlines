@@ -1,3 +1,15 @@
+<?php
+session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Something posted
+  
+    if (isset($_POST['class_economy'])) {
+      $_SESSION['type_place']="economy";
+    } else {
+        $_SESSION['type_place']="business";
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

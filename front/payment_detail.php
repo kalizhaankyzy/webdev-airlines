@@ -6,16 +6,20 @@
 	$jet_id=$data_arr[$count_submit][10];
 	$valid=false;
 	$dd="0";
+	$pass_id=$_SESSION['pass_id'];
+	$type_place=$_SESSION['type_place'];
+	$ticket_id=$_SESSION['ticket_id'];
+	$ticket_price=$data_arr[$count_submit][7];
 ?>
 <html >
 	<head>
 		
         <link rel="stylesheet" href="./assets/payment.css">
-		<script>
+		<!-- <script>
 			setTimeout(function(){
 			window.location.href = 'main.php';
-			}, 30 * 1000);
-		</script>
+			}, 300 * 1000);
+		</script> -->
 	</head>
 
 
@@ -65,10 +69,10 @@
 				$valid=false;
 			}
 			if($valid){
-				$mysql->query("UPDATE ticket SET booking_status='payed' WHERE pnr='102'");
+				$mysql->query("UPDATE ticket SET booking_status='payed' WHERE pnr='$ticket_id'");
 				
 				$mysql->query("INSERT INTO payments (date,price,pnr,jet_id,pass_id) 
-				VALUES ('$cur_date','25000','102','$jet_id','1')");
+				VALUES ('$cur_date','$ticket_price','$ticket_id','$jet_id','$pass_id')");
 				$mysql->close();
 			}
 			
